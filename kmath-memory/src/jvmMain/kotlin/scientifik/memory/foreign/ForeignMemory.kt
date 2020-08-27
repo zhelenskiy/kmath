@@ -2,9 +2,7 @@ package scientifik.memory.foreign
 
 import jdk.incubator.foreign.MemoryHandles
 import jdk.incubator.foreign.MemorySegment
-import scientifik.memory.Memory
-import scientifik.memory.MemoryReader
-import scientifik.memory.MemoryWriter
+import scientifik.memory.*
 import java.lang.invoke.VarHandle
 import java.nio.ByteOrder
 
@@ -23,10 +21,10 @@ internal class ForeignMemory(val scope: MemorySegment) : Memory, AutoCloseable {
         ForeignMemory(scope.asSlice(offset.toLong(), length.toLong()))
 
     override fun copy(): Memory {
-        val bytes = scope.toByteArray()
+        val bytes = scope.toByteArray()!!
         val newScope = MemorySegment.allocateNative(scope.byteSize())!!
 
-        var point = newScope.baseAddress()
+        var point = newScope.baseAddress()!!
 
         bytes.forEach {
             byteHandle.set(point, it)
@@ -41,11 +39,11 @@ internal class ForeignMemory(val scope: MemorySegment) : Memory, AutoCloseable {
     override fun close(): Unit = scope.close()
 
     internal companion object {
-        internal val doubleHandle: VarHandle = MemoryHandles.varHandle(java.lang.Double.TYPE, ByteOrder.nativeOrder())!!
-        internal val floatHandle: VarHandle = MemoryHandles.varHandle(java.lang.Float.TYPE, ByteOrder.nativeOrder())!!
-        internal val byteHandle: VarHandle = MemoryHandles.varHandle(java.lang.Byte.TYPE, ByteOrder.nativeOrder())!!
-        internal val shortHandle: VarHandle = MemoryHandles.varHandle(java.lang.Short.TYPE, ByteOrder.nativeOrder())!!
-        internal val intHandle: VarHandle = MemoryHandles.varHandle(Integer.TYPE, ByteOrder.nativeOrder())!!
-        internal val longHandle: VarHandle = MemoryHandles.varHandle(java.lang.Long.TYPE, ByteOrder.nativeOrder())!!
+        internal val doubleHandle: VarHandle = MemoryHandles.varHandle(Double::class.java, ByteOrder.nativeOrder())!!
+        internal val floatHandle: VarHandle = MemoryHandles.varHandle(Float::class.java, ByteOrder.nativeOrder())!!
+        internal val byteHandle: VarHandle = MemoryHandles.varHandle(Byte::class.java, ByteOrder.nativeOrder())!!
+        internal val shortHandle: VarHandle = MemoryHandles.varHandle(Short::class.java, ByteOrder.nativeOrder())!!
+        internal val intHandle: VarHandle = MemoryHandles.varHandle(Int::class.java, ByteOrder.nativeOrder())!!
+        internal val longHandle: VarHandle = MemoryHandles.varHandle(Long::class.java, ByteOrder.nativeOrder())!!
     }
 }

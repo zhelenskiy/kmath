@@ -5,7 +5,7 @@ import scientifik.memory.MemoryReader
 
 internal class ForeignReader(override val memory: ForeignMemory) : MemoryReader {
     private val scope: MemorySegment
-        get() = memory.scope.asReadOnly()
+        get() = memory.scope
 
     override fun readDouble(offset: Int): Double = with(scope) {
         ForeignMemory.doubleHandle.get(baseAddress().addOffset(offset.toLong())) as Double

@@ -31,5 +31,5 @@ internal class ForeignReader(override val memory: ForeignMemory) : MemoryReader 
         ForeignMemory.longHandle.get(baseAddress().addOffset(offset.toLong())) as Long
     }
 
-    override fun release(): Unit = memory.close()
+    override fun release(): Unit = Unit
 }

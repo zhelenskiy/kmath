@@ -31,5 +31,5 @@ internal class ForeignWriter(override val memory: ForeignMemory) : MemoryWriter 
         ForeignMemory.longHandle.set(baseAddress().addOffset(offset.toLong()), value)
     }
 
-    override fun release(): Unit = memory.close()
+    override fun release(): Unit = Unit
 }

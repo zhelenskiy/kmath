@@ -18,7 +18,7 @@ pluginManagement {
         id("ru.mipt.npm.mpp") version toolsVersion
         id("ru.mipt.npm.jvm") version toolsVersion
         id("ru.mipt.npm.publish") version toolsVersion
-        kotlin("jvm")  version kotlinVersion
+        kotlin("jvm") version kotlinVersion
         kotlin("plugin.allopen") version kotlinVersion
     }
 }
@@ -39,5 +39,6 @@ include(
     ":kmath-geometry",
     ":kmath-ast",
     ":kmath-ojalgo",
+    ":kmath-ejml",
     ":examples"
 )

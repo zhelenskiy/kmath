@@ -1,8 +1,8 @@
 package kscience.kmath.ejml
 
-import org.ejml.simple.SimpleMatrix
 import kscience.kmath.linear.Point
 import kscience.kmath.structures.Buffer
+import org.ejml.simple.SimpleMatrix
 
 /**
  * Represents point over EJML [SimpleMatrix].
@@ -10,7 +10,7 @@ import kscience.kmath.structures.Buffer
  * @property origin the underlying [SimpleMatrix].
  * @author Iaroslav Postovalov
  */
-public class EjmlVector internal constructor(public val origin: SimpleMatrix) : Point<Double> {
+public class EjmlVector(public val origin: SimpleMatrix) : Point<Double> {
     public override val size: Int
         get() = origin.numRows()
 

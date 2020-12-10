@@ -51,6 +51,8 @@ public interface MemoryReader {
 
     /**
      * Reads [Float] at certain [offset].
+     *
+     * **Warning: since JS can't handle Float properly, the size of segment read by this function is 8 bytes.**
      */
     public fun readFloat(offset: Int): Float
 
@@ -107,6 +109,8 @@ public interface MemoryWriter {
 
     /**
      * Writes [Float] at certain [offset].
+     *
+     * **Warning: since JS can't handle Float properly, the size of segment written by this function is 8 bytes.**
      */
     public fun writeFloat(offset: Int, value: Float)
 

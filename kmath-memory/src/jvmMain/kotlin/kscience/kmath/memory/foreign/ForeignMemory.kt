@@ -1,12 +1,27 @@
-package scientifik.memory.foreign
+package kscience.kmath.memory.foreign
 
 import jdk.incubator.foreign.MemoryHandles
 import jdk.incubator.foreign.MemorySegment
-import scientifik.memory.*
+import kscience.kmath.memory.Memory
+import kscience.kmath.memory.MemoryReader
+import kscience.kmath.memory.MemoryWriter
 import java.lang.invoke.VarHandle
 import java.nio.ByteOrder
 
-fun Memory.Companion.allocateForeign(length: Int): Memory = ForeignMemory(MemorySegment.allocateNative(length.toLong()))
+/**
+ * Allocates memory using JDK Foreign Memory API. It should be even faster than default ByteBuffer memory provided by
+ * [Memory.Companion.allocate].
+ */
+public fun Memory.Companion.allocateAsForeign(length: Int): Memory =
+    ForeignMemory(MemorySegment.allocateNative(length.toLong()))
+
+/**
+ * Wraps a [Memory] around existing [ByteArray]. This operation is unsafe since the array is not copied
+ * and could be mutated independently from the resulting [Memory].
+ *
+ * The memory is wrapped to JDK Foreign Memory segment.
+ */
+public fun Memory.Companion.wrapAsForeign(array: ByteArray): Memory = ForeignMemory(MemorySegment.ofArray(array))
 
 internal class ForeignMemory(val scope: MemorySegment) : Memory, AutoCloseable {
     override val size: Int
@@ -19,7 +34,7 @@ internal class ForeignMemory(val scope: MemorySegment) : Memory, AutoCloseable {
         ForeignMemory(scope.asSlice(offset.toLong(), length.toLong()))
 
     override fun copy(): Memory {
-        val newScope = MemorySegment.allocateNative(scope.byteSize())!!
+        val newScope = MemorySegment.allocateNative(scope.byteSize())
         newScope.copyFrom(scope)
         return ForeignMemory(newScope)
     }

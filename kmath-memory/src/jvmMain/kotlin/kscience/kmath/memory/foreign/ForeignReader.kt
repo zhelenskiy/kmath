@@ -1,7 +1,7 @@
-package scientifik.memory.foreign
+package kscience.kmath.memory.foreign
 
 import jdk.incubator.foreign.MemorySegment
-import scientifik.memory.MemoryReader
+import kscience.kmath.memory.MemoryReader
 
 internal class ForeignReader(override val memory: ForeignMemory) : MemoryReader {
     private val scope: MemorySegment

@@ -1,7 +1,7 @@
-package scientifik.memory.foreign
+package kscience.kmath.memory.foreign
 
 import jdk.incubator.foreign.MemorySegment
-import scientifik.memory.MemoryWriter
+import kscience.kmath.memory.MemoryWriter
 
 internal class ForeignWriter(override val memory: ForeignMemory) : MemoryWriter {
     private val scope: MemorySegment

@@ -1,11 +1,17 @@
 package scientifik.memory
 
-import scientifik.memory.foreign.allocateForeign
+import jdk.incubator.foreign.MemoryHandles
+import jdk.incubator.foreign.MemorySegment
+import kscience.kmath.memory.Memory
+import kscience.kmath.memory.foreign.allocateAsForeign
+import kscience.kmath.memory.read
+import kscience.kmath.memory.write
+import java.nio.ByteOrder
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
 internal class ForeignMemoryTest {
-    private fun getMemory(int: Int) = Memory.allocateForeign(int)
+    private fun getMemory(int: Int) = Memory.allocateAsForeign(int)
 
     @Test
     fun size() {

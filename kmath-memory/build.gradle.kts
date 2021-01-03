@@ -1,3 +1,8 @@
-plugins { id("scientifik.mpp") }
-kotlin.sourceSets.all { languageSettings.useExperimentalAnnotation("kotlin.contracts.ExperimentalContracts") }
-tasks.jvmTest.get().jvmArgs("--add-modules", "jdk.incubator.foreign")
+plugins {
+    id("ru.mipt.npm.mpp")
+    id("ru.mipt.npm.native")
+}
+
+tasks.jvmTest {
+    jvmArgs("--add-modules", "jdk.incubator.foreign")
+}

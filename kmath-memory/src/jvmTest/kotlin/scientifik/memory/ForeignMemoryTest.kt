@@ -1,12 +1,9 @@
 package scientifik.memory
 
-import jdk.incubator.foreign.MemoryHandles
-import jdk.incubator.foreign.MemorySegment
 import kscience.kmath.memory.Memory
 import kscience.kmath.memory.foreign.allocateAsForeign
 import kscience.kmath.memory.read
 import kscience.kmath.memory.write
-import java.nio.ByteOrder
 import kotlin.test.Test
 import kotlin.test.assertEquals
 

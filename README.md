@@ -89,7 +89,16 @@ submit a feature request if you want something to be implemented first.
 * ### [kmath-ast](kmath-ast)
 > 
 >
-> **Maturity**: EXPERIMENTAL
+> **Maturity**: PROTOTYPE
+>
+> **Features:**
+> - [expression-language](kmath-ast/src/jvmMain/kotlin/kscience/kmath/ast/parser.kt) : Expression language and its parser
+> - [mst](kmath-ast/src/commonMain/kotlin/kscience/kmath/ast/MST.kt) : MST (Mathematical Syntax Tree) as expression language's syntax intermediate representation
+> - [mst-building](kmath-ast/src/commonMain/kotlin/kscience/kmath/ast/MstAlgebra.kt) : MST building algebraic structure
+> - [mst-interpreter](kmath-ast/src/commonMain/kotlin/kscience/kmath/ast/MST.kt) : MST interpreter
+> - [mst-jvm-codegen](kmath-ast/src/jvmMain/kotlin/kscience/kmath/asm/asm.kt) : Dynamic MST to JVM bytecode compiler
+> - [mst-js-codegen](kmath-ast/src/jsMain/kotlin/kscience/kmath/estree/estree.kt) : Dynamic MST to JS compiler
+
 <hr/>
 
 * ### [kmath-commons](kmath-commons)
@@ -122,7 +131,7 @@ submit a feature request if you want something to be implemented first.
 * ### [kmath-dimensions](kmath-dimensions)
 > 
 >
-> **Maturity**: EXPERIMENTAL
+> **Maturity**: PROTOTYPE
 <hr/>
 
 * ### [kmath-ejml](kmath-ejml)
@@ -132,9 +141,17 @@ submit a feature request if you want something to be implemented first.
 <hr/>
 
 * ### [kmath-for-real](kmath-for-real)
-> 
+> Extension module that should be used to achieve numpy-like behavior. 
+All operations are specialized to work with `Double` numbers without declaring algebraic contexts.
+One can still use generic algebras though.
 >
 > **Maturity**: EXPERIMENTAL
+>
+> **Features:**
+> - [RealVector](kmath-for-real/src/commonMain/kotlin/kscience/kmath/real/RealVector.kt) : Numpy-like operations for Buffers/Points
+> - [RealMatrix](kmath-for-real/src/commonMain/kotlin/kscience/kmath/real/RealMatrix.kt) : Numpy-like operations for 2d real structures
+> - [grids](kmath-for-real/src/commonMain/kotlin/kscience/kmath/structures/grids.kt) : Uniform grid generators
+
 <hr/>
 
 * ### [kmath-functions](kmath-functions)
@@ -155,6 +172,12 @@ submit a feature request if you want something to be implemented first.
 > **Maturity**: EXPERIMENTAL
 <hr/>
 
+* ### [kmath-kotlingrad](kmath-kotlingrad)
+> 
+>
+> **Maturity**: EXPERIMENTAL
+<hr/>
+
 * ### [kmath-memory](kmath-memory)
 > 
 >
@@ -167,7 +190,7 @@ submit a feature request if you want something to be implemented first.
 > **Maturity**: EXPERIMENTAL
 >
 > **Features:**
-> - [nd4jarraystrucure](kmath-nd4j/src/commonMain/kotlin/kscience/kmath/operations/Algebra.kt) : NDStructure wrapper for INDArray
+> - [nd4jarraystructure](kmath-nd4j/src/commonMain/kotlin/kscience/kmath/operations/Algebra.kt) : NDStructure wrapper for INDArray
 > - [nd4jarrayrings](kmath-nd4j/src/commonMain/kotlin/kscience/kmath/structures/NDStructure.kt) : Rings over Nd4jArrayStructure of Int and Long
 > - [nd4jarrayfields](kmath-nd4j/src/commonMain/kotlin/kscience/kmath/structures/Buffers.kt) : Fields over Nd4jArrayStructure of Float and Double
 
@@ -211,20 +234,12 @@ Release artifacts are accessible from bintray with following configuration (see 
 
 ```kotlin
 repositories {
-    jcenter()
-    maven("https://clojars.org/repo")
-    maven("https://dl.bintray.com/egor-bogomolov/astminer/")
-    maven("https://dl.bintray.com/hotkeytlt/maven")
-    maven("https://dl.bintray.com/kotlin/kotlin-eap")
-    maven("https://dl.bintray.com/kotlin/kotlinx")
     maven("https://dl.bintray.com/mipt-npm/kscience")
-    maven("https://jitpack.io")
-    mavenCentral()
 }
 
 dependencies {
-    api("kscience.kmath:kmath-core:0.2.0-dev-3")
-    // api("kscience.kmath:kmath-core-jvm:0.2.0-dev-3") for jvm-specific version
+    api("kscience.kmath:kmath-core:0.2.0-dev-4")
+    // api("kscience.kmath:kmath-core-jvm:0.2.0-dev-4") for jvm-specific version
 }
 ```
 
@@ -236,15 +251,7 @@ Development builds are uploaded to the separate repository:
 
 ```kotlin
 repositories {
-    jcenter()
-    maven("https://clojars.org/repo")
-    maven("https://dl.bintray.com/egor-bogomolov/astminer/")
-    maven("https://dl.bintray.com/hotkeytlt/maven")
-    maven("https://dl.bintray.com/kotlin/kotlin-eap")
-    maven("https://dl.bintray.com/kotlin/kotlinx")
     maven("https://dl.bintray.com/mipt-npm/dev")
-    maven("https://jitpack.io")
-    mavenCentral()
 }
 ```
 

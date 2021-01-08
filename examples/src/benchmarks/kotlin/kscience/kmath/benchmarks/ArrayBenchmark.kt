@@ -1,4 +1,4 @@
-package kscience.kmath.structures
+package kscience.kmath.benchmarks
 
 import org.openjdk.jmh.annotations.Benchmark
 import org.openjdk.jmh.annotations.Scope
@@ -16,17 +16,13 @@ internal class ArrayBenchmark {
     @Benchmark
     fun benchmarkBufferRead() {
         var res = 0
-        for (i in 1..size) res += arrayBuffer.get(
-            size - i
-        )
+        for (i in 1..size) res += arrayBuffer[size - i]
     }
 
     @Benchmark
     fun nativeBufferRead() {
         var res = 0
-        for (i in 1..size) res += nativeBuffer.get(
-            size - i
-        )
+        for (i in 1..size) res += nativeBuffer[size - i]
     }
 
     companion object {

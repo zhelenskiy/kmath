@@ -1,11 +1,12 @@
 package kscience.kmath.linear
 
-import kscience.kmath.structures.Matrix
-import kscience.kmath.structures.NDStructure
-import kscience.kmath.structures.as2D
+import kscience.kmath.nd.NDStructure
+import kscience.kmath.nd.as2D
+import kscience.kmath.operations.invoke
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
+@Suppress("UNUSED_VARIABLE")
 class MatrixTest {
     @Test
     fun testTranspose() {
@@ -38,7 +39,7 @@ class MatrixTest {
         infix fun Matrix<Double>.pow(power: Int): Matrix<Double> {
             var res = this
             repeat(power - 1) {
-                res = res dot this
+                res = RealMatrixContext.invoke { res dot this@pow }
             }
             return res
         }

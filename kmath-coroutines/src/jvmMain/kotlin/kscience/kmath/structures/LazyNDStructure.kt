@@ -2,6 +2,8 @@ package kscience.kmath.structures
 
 import kotlinx.coroutines.*
 import kscience.kmath.coroutines.Math
+import kscience.kmath.nd.DefaultStrides
+import kscience.kmath.nd.NDStructure
 
 public class LazyNDStructure<T>(
     public val scope: CoroutineScope,
@@ -24,7 +26,7 @@ public class LazyNDStructure<T>(
     }
 
     public override fun equals(other: Any?): Boolean {
-        return NDStructure.equals(this, other as? NDStructure<*> ?: return false)
+        return NDStructure.contentEquals(this, other as? NDStructure<*> ?: return false)
     }
 
     public override fun hashCode(): Int {

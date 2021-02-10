@@ -1,23 +1,25 @@
 package kscience.kmath.ejml
 
+import kscience.kmath.linear.*
+import kscience.kmath.misc.UnstableKMathAPI
+import kscience.kmath.nd.getFeature
 import org.ejml.simple.SimpleMatrix
-import kscience.kmath.linear.MatrixContext
-import kscience.kmath.linear.Point
-import kscience.kmath.operations.Space
-import kscience.kmath.operations.invoke
-import kscience.kmath.structures.Matrix
 
 /**
  * Represents context of basic operations operating with [EjmlMatrix].
  *
  * @author Iaroslav Postovalov
  */
-public class EjmlMatrixContext(private val space: Space<Double>) : MatrixContext<Double> {
+public object EjmlMatrixContext : MatrixContext<Double, EjmlMatrix> {
+
     /**
      * Converts this matrix to EJML one.
      */
-    public fun Matrix<Double>.toEjml(): EjmlMatrix =
-        if (this is EjmlMatrix) this else produce(rowNum, colNum) { i, j -> get(i, j) }
+    @OptIn(UnstableKMathAPI::class)
+    public fun Matrix<Double>.toEjml(): EjmlMatrix = when (val matrix = origin) {
+        is EjmlMatrix -> matrix
+        else -> produce(rowNum, colNum) { i, j -> get(i, j) }
+    }
 
     /**
      * Converts this vector to EJML one.
@@ -34,6 +36,11 @@ public class EjmlMatrixContext(private val space: Space<Double>) : MatrixContext
             }
         })
 
+    override fun point(size: Int, initializer: (Int) -> Double): Point<Double> =
+        EjmlVector(SimpleMatrix(size, 1).also {
+            (0 until it.numRows()).forEach { row -> it[row, 0] = initializer(row) }
+        })
+
     public override fun Matrix<Double>.dot(other: Matrix<Double>): EjmlMatrix =
         EjmlMatrix(toEjml().origin.mult(other.toEjml().origin))
 
@@ -47,11 +54,10 @@ public class EjmlMatrixContext(private val space: Space<Double>) : MatrixContext
         EjmlMatrix(toEjml().origin - b.toEjml().origin)
 
     public override fun multiply(a: Matrix<Double>, k: Number): EjmlMatrix =
-        produce(a.rowNum, a.colNum) { i, j -> space { a[i, j] * k } }
+        produce(a.rowNum, a.colNum) { i, j -> a[i, j] * k.toDouble() }
 
-    public override operator fun Matrix<Double>.times(value: Double): EjmlMatrix = EjmlMatrix(toEjml().origin.scale(value))
-
-    public companion object
+    public override operator fun Matrix<Double>.times(value: Double): EjmlMatrix =
+        EjmlMatrix(toEjml().origin.scale(value))
 }
 
 /**
@@ -76,11 +82,7 @@ public fun EjmlMatrixContext.solve(a: Matrix<Double>, b: Matrix<Double>): EjmlMa
 public fun EjmlMatrixContext.solve(a: Matrix<Double>, b: Point<Double>): EjmlVector =
     EjmlVector(a.toEjml().origin.solve(b.toEjml().origin))
 
-/**
- * Returns the inverse of given matrix: b = a^(-1).
- *
- * @param a the matrix.
- * @return the inverse of this matrix.
- * @author Iaroslav Postovalov
- */
-public fun EjmlMatrixContext.inverse(a: Matrix<Double>): EjmlMatrix = EjmlMatrix(a.toEjml().origin.invert())
+@OptIn(UnstableKMathAPI::class)
+public fun EjmlMatrix.inverted(): EjmlMatrix = getFeature<InverseMatrixFeature<Double>>()!!.inverse as EjmlMatrix
+
+public fun EjmlMatrixContext.inverse(matrix: Matrix<Double>): Matrix<Double> = matrix.toEjml().inverted()

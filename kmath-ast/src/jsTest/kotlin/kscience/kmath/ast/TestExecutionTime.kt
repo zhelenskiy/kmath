@@ -2,7 +2,7 @@ package kscience.kmath.ast
 
 import kscience.kmath.expressions.Expression
 import kscience.kmath.expressions.StringSymbol
-import kscience.kmath.expressions.expressionInField
+import kscience.kmath.expressions.expressionInExtendedField
 import kscience.kmath.expressions.invoke
 import kscience.kmath.operations.RealField
 import kotlin.math.pow
@@ -59,8 +59,8 @@ internal class TestExecutionTime {
         measureTime { repeat(times) { sum += e("x" to rng.nextDouble()) } }.also(::println)
         assertEquals(reference, sum)
 
-        e = RealField.expressionInField { args ->
-            args.getValue(StringSymbol("x")).pow(1.0 / 6.0)
+        e = RealField.expressionInExtendedField {
+            symbol("x").pow(1.0 / 6.0)
         }
 
         println("Functional Expression")

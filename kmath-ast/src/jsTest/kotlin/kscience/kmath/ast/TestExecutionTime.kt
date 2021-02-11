@@ -22,7 +22,7 @@ internal class TestExecutionTime {
             symbol("x").pow(1.0 / 6.0)
         }
 
-        println("MST")
+        println("MST Expression")
         var rng = Random(0)
         measureTime { repeat(times) { sum += basic("x" to rng.nextDouble()) } }.also(::println)
         val reference = sum
@@ -53,6 +53,16 @@ internal class TestExecutionTime {
         //  };
 
         println("JS Math")
+        rng = Random(0)
+        sum = 0.0
+        measureTime { repeat(times) { sum += e("x" to rng.nextDouble()) } }.also(::println)
+        assertEquals(reference, sum)
+
+        e = RealField.expressionInField { args ->
+            args.getValue(StringSymbol("x")).pow(1.0 / 6.0)
+        }
+
+        println("Functional Expression")
         rng = Random(0)
         sum = 0.0
         measureTime { repeat(times) { sum += e("x" to rng.nextDouble()) } }.also(::println)

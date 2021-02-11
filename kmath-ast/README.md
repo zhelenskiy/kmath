@@ -12,7 +12,7 @@ This subproject implements the following features:
 
 > #### Artifact:
 >
-> This module artifact: `kscience.kmath:kmath-ast:0.2.0-dev-6`.
+> This module artifact: `kscience.kmath:kmath-ast:0.2.0-dev-7`.
 >
 > Bintray release version:        [ ![Download](https://api.bintray.com/packages/mipt-npm/kscience/kmath-ast/images/download.svg) ](https://bintray.com/mipt-npm/kscience/kmath-ast/_latestVersion)
 >
@@ -30,7 +30,7 @@ This subproject implements the following features:
 > }
 > 
 > dependencies {
->     implementation 'kscience.kmath:kmath-ast:0.2.0-dev-6'
+>     implementation 'kscience.kmath:kmath-ast:0.2.0-dev-7'
 > }
 > ```
 > **Gradle Kotlin DSL:**
@@ -44,7 +44,7 @@ This subproject implements the following features:
 > }
 > 
 > dependencies {
->     implementation("kscience.kmath:kmath-ast:0.2.0-dev-6")
+>     implementation("kscience.kmath:kmath-ast:0.2.0-dev-7")
 > }
 > ```
 
@@ -115,6 +115,25 @@ The code above returns expression implemented with such a JS function:
 var executable = function (constants, arguments) {
   return constants[1](constants[0](arguments, "x"), 2);
 };
+```
+
+An (experimental and slow for now) alternative is WebAssembly code generation:
+
+```kotlin
+import kscience.kmath.wasm.*
+
+RealField.mstInField { symbol("x") + 2 }.compile()
+```
+
+An example of emitted WASM IR in the form of WAT:
+
+```lisp
+(func $executable (param $0 f64) (result f64)
+  (f64.add
+    (local.get $0)
+    (f64.const 2)
+  )
+)
 ```
 
 #### Known issues

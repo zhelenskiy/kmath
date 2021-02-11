@@ -75,6 +75,25 @@ var executable = function (constants, arguments) {
 };
 ```
 
+An (experimental and slow for now) alternative is WebAssembly code generation:
+
+```kotlin
+import kscience.kmath.wasm.*
+
+RealField.mstInField { symbol("x") + 2 }.compile()
+```
+
+An example of emitted WASM IR in the form of WAT:
+
+```lisp
+(func \$executable (param \$0 f64) (result f64)
+  (f64.add
+    (local.get \$0)
+    (f64.const 2)
+  )
+)
+```
+
 #### Known issues
 
 - This feature uses `eval` which can be unavailable in several environments.

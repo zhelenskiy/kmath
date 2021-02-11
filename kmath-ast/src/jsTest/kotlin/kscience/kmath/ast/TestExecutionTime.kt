@@ -1,72 +1,68 @@
 package kscience.kmath.ast
 
 import kscience.kmath.expressions.Expression
-import kscience.kmath.expressions.StringSymbol
 import kscience.kmath.expressions.expressionInExtendedField
 import kscience.kmath.expressions.invoke
+import kscience.kmath.expressions.symbol
+import kscience.kmath.operations.ExtendedField
 import kscience.kmath.operations.RealField
-import kotlin.math.pow
 import kotlin.random.Random
 import kotlin.test.Test
-import kotlin.test.assertEquals
 import kotlin.time.measureTime
 import kscience.kmath.estree.compile as estreeCompile
 import kscience.kmath.wasm.compile as wasmCompile
 
 internal class TestExecutionTime {
-    @Test
-    fun testExecutionTime() {
-        val times = 500_000
-        var sum = 0.0
+    private companion object {
+        private const val times = 1_000_000
+        private val algebra: ExtendedField<Double> = RealField
 
-        val basic = RealField.mstInExtendedField {
-            symbol("x").pow(1.0 / 6.0)
+        val functional = RealField.expressionInExtendedField {
+            symbol("x") * const(2.0) + const(2.0) / symbol("x") - const(16.0) / sin(symbol("x"))
         }
 
-        println("MST Expression")
-        var rng = Random(0)
-        measureTime { repeat(times) { sum += basic("x" to rng.nextDouble()) } }.also(::println)
-        val reference = sum
-
-        var e = basic.wasmCompile()
-        println("WASM Compiled")
-        rng = Random(0)
-        sum = 0.0
-        measureTime { repeat(times) { sum += e("x" to rng.nextDouble()) } }.also(::println)
-        assertEquals(reference, sum)
-
-        e = basic.estreeCompile()
-        println("ESTree Compiled")
-        rng = Random(0)
-        sum = 0.0
-        measureTime { repeat(times) { sum += e("x" to rng.nextDouble()) } }.also(::println)
-        assertEquals(reference, sum)
-
-        e = Expression { args ->
-            args.getValue(StringSymbol("x")).pow(1.0 / 6.0)
+        val mst = RealField.mstInExtendedField {
+            symbol("x") * number(2.0) + number(2.0) / symbol("x") - number(16.0) / sin(symbol("x"))
         }
 
-        // The actual implementation of Expression above.
-        //   _no_name_provided__117.prototype.invoke_163 = function (args) {
-        //    var tmp0_pow_0 = getValue(args, new StringSymbol(_StringSymbol___init__impl_('x')));
-        //    var tmp1_pow_0 = 0.16666666666666666;
-        //    return Math.pow(tmp0_pow_0, tmp1_pow_0);
+        val wasm = mst.wasmCompile()
+        val estree = mst.estreeCompile()
+
+        // In JavaScript, the expression below is implemented like
+        //   _no_name_provided__125.prototype.invoke_178 = function (args) {
+        //    var tmp = getValue(args, raw$_get_x__3(this._$x$delegate_2)) * 2.0 + 2.0 / getValue(args, raw$_get_x__3(this._$x$delegate_2));
+        //    var tmp0_sin_0_5 = getValue(args, raw$_get_x__3(this._$x$delegate_2));
+        //    return tmp - 16.0 / Math.sin(tmp0_sin_0_5);
         //  };
 
-        println("JS Math")
-        rng = Random(0)
-        sum = 0.0
-        measureTime { repeat(times) { sum += e("x" to rng.nextDouble()) } }.also(::println)
-        assertEquals(reference, sum)
+        val raw = run {
+            val x by symbol
 
-        e = RealField.expressionInExtendedField {
-            symbol("x").pow(1.0 / 6.0)
+            Expression<Double> { args ->
+                args.getValue(x) * 2.0 + 2.0 / args.getValue(x) - 16.0 / kotlin.math.sin(args.getValue(x))
+            }
         }
-
-        println("Functional Expression")
-        rng = Random(0)
-        sum = 0.0
-        measureTime { repeat(times) { sum += e("x" to rng.nextDouble()) } }.also(::println)
-        assertEquals(reference, sum)
     }
+
+    private fun invokeAndSum(name: String, expr: Expression<Double>) {
+        println(name)
+        val rng = Random(0)
+        var sum = 0.0
+        measureTime { repeat(times) { sum += expr("x" to rng.nextDouble()) } }.also(::println)
+    }
+
+    @Test
+    fun functionalExpression() = invokeAndSum("functional", functional)
+
+    @Test
+    fun mstExpression() = invokeAndSum("mst", mst)
+
+    @Test
+    fun wasmExpression() = invokeAndSum("wasm", wasm)
+
+    @Test
+    fun estreeExpression() = invokeAndSum("estree", wasm)
+
+    @Test
+    fun rawExpression() = invokeAndSum("raw", raw)
 }

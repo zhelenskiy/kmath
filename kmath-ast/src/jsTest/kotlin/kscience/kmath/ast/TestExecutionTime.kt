@@ -45,6 +45,13 @@ internal class TestExecutionTime {
             args.getValue(StringSymbol("x")).pow(1.0 / 6.0)
         }
 
+        // The actual implementation of Expression above.
+        //   _no_name_provided__117.prototype.invoke_163 = function (args) {
+        //    var tmp0_pow_0 = getValue(args, new StringSymbol(_StringSymbol___init__impl_('x')));
+        //    var tmp1_pow_0 = 0.16666666666666666;
+        //    return Math.pow(tmp0_pow_0, tmp1_pow_0);
+        //  };
+
         println("JS Math")
         rng = Random(0)
         sum = 0.0

@@ -2,6 +2,7 @@ package kscience.kmath.ast
 
 import kscience.kmath.expressions.Expression
 import kscience.kmath.expressions.StringSymbol
+import kscience.kmath.expressions.expressionInField
 import kscience.kmath.expressions.invoke
 import kscience.kmath.operations.RealField
 import kotlin.math.pow

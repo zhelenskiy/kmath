@@ -1,9 +1,14 @@
 package kscience.kmath.estree.internal
 
-import kscience.kmath.estree.internal.astring.generate
-import kscience.kmath.estree.internal.estree.*
 import kscience.kmath.expressions.Expression
 import kscience.kmath.expressions.Symbol
+import kscience.kmath.internal.astring.generate
+import kscience.kmath.internal.estree.*
+import kscience.kmath.internal.estree.BaseExpression
+import kscience.kmath.internal.estree.FunctionExpression
+import kscience.kmath.internal.estree.Program
+import kscience.kmath.internal.estree.VariableDeclaration
+import kscience.kmath.internal.estree.VariableDeclarator
 
 internal class ESTreeBuilder<T>(val bodyCallback: ESTreeBuilder<T>.() -> BaseExpression) {
     private class GeneratedExpression<T>(val executable: dynamic, val constants: Array<dynamic>) : Expression<T> {

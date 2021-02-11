@@ -3,9 +3,7 @@
     "OVERRIDING_FINAL_MEMBER",
     "RETURN_TYPE_MISMATCH_ON_OVERRIDE",
     "CONFLICTING_OVERLOADS",
-    "PackageDirectoryMismatch",
     "NO_EXPLICIT_VISIBILITY_IN_API_MODE_WARNING",
-    "KDocMissingDocumentation",
     "PropertyName",
     "ClassName",
 )
@@ -13,44 +11,44 @@
 @file:JsModule("binaryen")
 @file:JsNonModule
 
-package binaryen
+package kscience.kmath.internal.binaryen
 
 import org.khronos.webgl.Uint8Array
 import kotlin.js.Promise
 
-external var isReady: Boolean
+internal external var isReady: Boolean
 
-external var ready: Promise<Any>
+internal external var ready: Promise<Any>
 
-external var none: Type
+internal external var none: Type
 
-external var i32: Type
+internal external var i32: Type
 
-external var i64: Type
+internal external var i64: Type
 
-external var f32: Type
+internal external var f32: Type
 
-external var f64: Type
+internal external var f64: Type
 
-external var v128: Type
+internal external var v128: Type
 
-external var funcref: Type
+internal external var funcref: Type
 
-external var anyref: Type
+internal external var anyref: Type
 
-external var nullref: Type
+internal external var nullref: Type
 
-external var exnref: Type
+internal external var exnref: Type
 
-external var unreachable: Type
+internal external var unreachable: Type
 
-external var auto: Type
+internal external var auto: Type
 
-external fun createType(types: Array<Type>): Type
+internal external fun createType(types: Array<Type>): Type
 
-external fun expandType(type: Type): Array<Type>
+internal external fun expandType(type: Type): Array<Type>
 
-external enum class ExpressionIds {
+internal external enum class ExpressionIds {
     Invalid,
     Block,
     If,
@@ -102,105 +100,105 @@ external enum class ExpressionIds {
     Pop
 }
 
-external var InvalidId: ExpressionIds
+internal external var InvalidId: ExpressionIds
 
-external var BlockId: ExpressionIds
+internal external var BlockId: ExpressionIds
 
-external var IfId: ExpressionIds
+internal external var IfId: ExpressionIds
 
-external var LoopId: ExpressionIds
+internal external var LoopId: ExpressionIds
 
-external var BreakId: ExpressionIds
+internal external var BreakId: ExpressionIds
 
-external var SwitchId: ExpressionIds
+internal external var SwitchId: ExpressionIds
 
-external var CallId: ExpressionIds
+internal external var CallId: ExpressionIds
 
-external var CallIndirectId: ExpressionIds
+internal external var CallIndirectId: ExpressionIds
 
-external var LocalGetId: ExpressionIds
+internal external var LocalGetId: ExpressionIds
 
-external var LocalSetId: ExpressionIds
+internal external var LocalSetId: ExpressionIds
 
-external var GlobalGetId: ExpressionIds
+internal external var GlobalGetId: ExpressionIds
 
-external var GlobalSetId: ExpressionIds
+internal external var GlobalSetId: ExpressionIds
 
-external var LoadId: ExpressionIds
+internal external var LoadId: ExpressionIds
 
-external var StoreId: ExpressionIds
+internal external var StoreId: ExpressionIds
 
-external var ConstId: ExpressionIds
+internal external var ConstId: ExpressionIds
 
-external var UnaryId: ExpressionIds
+internal external var UnaryId: ExpressionIds
 
-external var BinaryId: ExpressionIds
+internal external var BinaryId: ExpressionIds
 
-external var SelectId: ExpressionIds
+internal external var SelectId: ExpressionIds
 
-external var DropId: ExpressionIds
+internal external var DropId: ExpressionIds
 
-external var ReturnId: ExpressionIds
+internal external var ReturnId: ExpressionIds
 
-external var HostId: ExpressionIds
+internal external var HostId: ExpressionIds
 
-external var NopId: ExpressionIds
+internal external var NopId: ExpressionIds
 
-external var UnreachableId: ExpressionIds
+internal external var UnreachableId: ExpressionIds
 
-external var AtomicCmpxchgId: ExpressionIds
+internal external var AtomicCmpxchgId: ExpressionIds
 
-external var AtomicRMWId: ExpressionIds
+internal external var AtomicRMWId: ExpressionIds
 
-external var AtomicWaitId: ExpressionIds
+internal external var AtomicWaitId: ExpressionIds
 
-external var AtomicNotifyId: ExpressionIds
+internal external var AtomicNotifyId: ExpressionIds
 
-external var AtomicFenceId: ExpressionIds
+internal external var AtomicFenceId: ExpressionIds
 
-external var SIMDExtractId: ExpressionIds
+internal external var SIMDExtractId: ExpressionIds
 
-external var SIMDReplaceId: ExpressionIds
+internal external var SIMDReplaceId: ExpressionIds
 
-external var SIMDShuffleId: ExpressionIds
+internal external var SIMDShuffleId: ExpressionIds
 
-external var SIMDTernaryId: ExpressionIds
+internal external var SIMDTernaryId: ExpressionIds
 
-external var SIMDShiftId: ExpressionIds
+internal external var SIMDShiftId: ExpressionIds
 
-external var SIMDLoadId: ExpressionIds
+internal external var SIMDLoadId: ExpressionIds
 
-external var MemoryInitId: ExpressionIds
+internal external var MemoryInitId: ExpressionIds
 
-external var DataDropId: ExpressionIds
+internal external var DataDropId: ExpressionIds
 
-external var MemoryCopyId: ExpressionIds
+internal external var MemoryCopyId: ExpressionIds
 
-external var MemoryFillId: ExpressionIds
+internal external var MemoryFillId: ExpressionIds
 
-external var RefNullId: ExpressionIds
+internal external var RefNullId: ExpressionIds
 
-external var RefIsNullId: ExpressionIds
+internal external var RefIsNullId: ExpressionIds
 
-external var RefFuncId: ExpressionIds
+internal external var RefFuncId: ExpressionIds
 
-external var TryId: ExpressionIds
+internal external var TryId: ExpressionIds
 
-external var ThrowId: ExpressionIds
+internal external var ThrowId: ExpressionIds
 
-external var RethrowId: ExpressionIds
+internal external var RethrowId: ExpressionIds
 
-external var BrOnExnId: ExpressionIds
+internal external var BrOnExnId: ExpressionIds
 
-external var TupleMakeId: ExpressionIds
+internal external var TupleMakeId: ExpressionIds
 
-external var TupleExtractId: ExpressionIds
+internal external var TupleExtractId: ExpressionIds
 
-external var PushId: ExpressionIds
+internal external var PushId: ExpressionIds
 
-external var PopId: ExpressionIds
+internal external var PopId: ExpressionIds
 
-external enum class ExternalKinds {
+internal external enum class ExternalKinds {
     Function,
     Table,
     Memory,
@@ -208,17 +206,17 @@ external enum class ExternalKinds {
     Event
 }
 
-external var ExternalFunction: ExternalKinds
+internal external var ExternalFunction: ExternalKinds
 
-external var ExternalTable: ExternalKinds
+internal external var ExternalTable: ExternalKinds
 
-external var ExternalMemory: ExternalKinds
+internal external var ExternalMemory: ExternalKinds
 
-external var ExternalGlobal: ExternalKinds
+internal external var ExternalGlobal: ExternalKinds
 
-external var ExternalEvent: ExternalKinds
+internal external var ExternalEvent: ExternalKinds
 
-external enum class Features {
+internal external enum class Features {
     MVP,
     Atomics,
     MutableGlobals,
@@ -235,7 +233,7 @@ external enum class Features {
     All
 }
 
-external enum class Operations {
+internal external enum class Operations {
     ClzInt32,
     CtzInt32,
     PopcntInt32,
@@ -559,660 +557,660 @@ external enum class Operations {
     SwizzleVec8x16
 }
 
-external var ClzInt32: Operations
+internal external var ClzInt32: Operations
 
-external var CtzInt32: Operations
+internal external var CtzInt32: Operations
 
-external var PopcntInt32: Operations
+internal external var PopcntInt32: Operations
 
-external var NegFloat32: Operations
+internal external var NegFloat32: Operations
 
-external var AbsFloat32: Operations
+internal external var AbsFloat32: Operations
 
-external var CeilFloat32: Operations
+internal external var CeilFloat32: Operations
 
-external var FloorFloat32: Operations
+internal external var FloorFloat32: Operations
 
-external var TruncFloat32: Operations
+internal external var TruncFloat32: Operations
 
-external var NearestFloat32: Operations
+internal external var NearestFloat32: Operations
 
-external var SqrtFloat32: Operations
+internal external var SqrtFloat32: Operations
 
-external var EqZInt32: Operations
+internal external var EqZInt32: Operations
 
-external var ClzInt64: Operations
+internal external var ClzInt64: Operations
 
-external var CtzInt64: Operations
+internal external var CtzInt64: Operations
 
-external var PopcntInt64: Operations
+internal external var PopcntInt64: Operations
 
-external var NegFloat64: Operations
+internal external var NegFloat64: Operations
 
-external var AbsFloat64: Operations
+internal external var AbsFloat64: Operations
 
-external var CeilFloat64: Operations
+internal external var CeilFloat64: Operations
 
-external var FloorFloat64: Operations
+internal external var FloorFloat64: Operations
 
-external var TruncFloat64: Operations
+internal external var TruncFloat64: Operations
 
-external var NearestFloat64: Operations
+internal external var NearestFloat64: Operations
 
-external var SqrtFloat64: Operations
+internal external var SqrtFloat64: Operations
 
-external var EqZInt64: Operations
+internal external var EqZInt64: Operations
 
-external var ExtendSInt32: Operations
+internal external var ExtendSInt32: Operations
 
-external var ExtendUInt32: Operations
+internal external var ExtendUInt32: Operations
 
-external var WrapInt64: Operations
+internal external var WrapInt64: Operations
 
-external var TruncSFloat32ToInt32: Operations
+internal external var TruncSFloat32ToInt32: Operations
 
-external var TruncSFloat32ToInt64: Operations
+internal external var TruncSFloat32ToInt64: Operations
 
-external var TruncUFloat32ToInt32: Operations
+internal external var TruncUFloat32ToInt32: Operations
 
-external var TruncUFloat32ToInt64: Operations
+internal external var TruncUFloat32ToInt64: Operations
 
-external var TruncSFloat64ToInt32: Operations
+internal external var TruncSFloat64ToInt32: Operations
 
-external var TruncSFloat64ToInt64: Operations
+internal external var TruncSFloat64ToInt64: Operations
 
-external var TruncUFloat64ToInt32: Operations
+internal external var TruncUFloat64ToInt32: Operations
 
-external var TruncUFloat64ToInt64: Operations
+internal external var TruncUFloat64ToInt64: Operations
 
-external var TruncSatSFloat32ToInt32: Operations
+internal external var TruncSatSFloat32ToInt32: Operations
 
-external var TruncSatSFloat32ToInt64: Operations
+internal external var TruncSatSFloat32ToInt64: Operations
 
-external var TruncSatUFloat32ToInt32: Operations
+internal external var TruncSatUFloat32ToInt32: Operations
 
-external var TruncSatUFloat32ToInt64: Operations
+internal external var TruncSatUFloat32ToInt64: Operations
 
-external var TruncSatSFloat64ToInt32: Operations
+internal external var TruncSatSFloat64ToInt32: Operations
 
-external var TruncSatSFloat64ToInt64: Operations
+internal external var TruncSatSFloat64ToInt64: Operations
 
-external var TruncSatUFloat64ToInt32: Operations
+internal external var TruncSatUFloat64ToInt32: Operations
 
-external var TruncSatUFloat64ToInt64: Operations
+internal external var TruncSatUFloat64ToInt64: Operations
 
-external var ReinterpretFloat32: Operations
+internal external var ReinterpretFloat32: Operations
 
-external var ReinterpretFloat64: Operations
+internal external var ReinterpretFloat64: Operations
 
-external var ConvertSInt32ToFloat32: Operations
+internal external var ConvertSInt32ToFloat32: Operations
 
-external var ConvertSInt32ToFloat64: Operations
+internal external var ConvertSInt32ToFloat64: Operations
 
-external var ConvertUInt32ToFloat32: Operations
+internal external var ConvertUInt32ToFloat32: Operations
 
-external var ConvertUInt32ToFloat64: Operations
+internal external var ConvertUInt32ToFloat64: Operations
 
-external var ConvertSInt64ToFloat32: Operations
+internal external var ConvertSInt64ToFloat32: Operations
 
-external var ConvertSInt64ToFloat64: Operations
+internal external var ConvertSInt64ToFloat64: Operations
 
-external var ConvertUInt64ToFloat32: Operations
+internal external var ConvertUInt64ToFloat32: Operations
 
-external var ConvertUInt64ToFloat64: Operations
+internal external var ConvertUInt64ToFloat64: Operations
 
-external var PromoteFloat32: Operations
+internal external var PromoteFloat32: Operations
 
-external var DemoteFloat64: Operations
+internal external var DemoteFloat64: Operations
 
-external var ReinterpretInt32: Operations
+internal external var ReinterpretInt32: Operations
 
-external var ReinterpretInt64: Operations
+internal external var ReinterpretInt64: Operations
 
-external var ExtendS8Int32: Operations
+internal external var ExtendS8Int32: Operations
 
-external var ExtendS16Int32: Operations
+internal external var ExtendS16Int32: Operations
 
-external var ExtendS8Int64: Operations
+internal external var ExtendS8Int64: Operations
 
-external var ExtendS16Int64: Operations
+internal external var ExtendS16Int64: Operations
 
-external var ExtendS32Int64: Operations
+internal external var ExtendS32Int64: Operations
 
-external var AddInt32: Operations
+internal external var AddInt32: Operations
 
-external var SubInt32: Operations
+internal external var SubInt32: Operations
 
-external var MulInt32: Operations
+internal external var MulInt32: Operations
 
-external var DivSInt32: Operations
+internal external var DivSInt32: Operations
 
-external var DivUInt32: Operations
+internal external var DivUInt32: Operations
 
-external var RemSInt32: Operations
+internal external var RemSInt32: Operations
 
-external var RemUInt32: Operations
+internal external var RemUInt32: Operations
 
-external var AndInt32: Operations
+internal external var AndInt32: Operations
 
-external var OrInt32: Operations
+internal external var OrInt32: Operations
 
-external var XorInt32: Operations
+internal external var XorInt32: Operations
 
-external var ShlInt32: Operations
+internal external var ShlInt32: Operations
 
-external var ShrUInt32: Operations
+internal external var ShrUInt32: Operations
 
-external var ShrSInt32: Operations
+internal external var ShrSInt32: Operations
 
-external var RotLInt32: Operations
+internal external var RotLInt32: Operations
 
-external var RotRInt32: Operations
+internal external var RotRInt32: Operations
 
-external var EqInt32: Operations
+internal external var EqInt32: Operations
 
-external var NeInt32: Operations
+internal external var NeInt32: Operations
 
-external var LtSInt32: Operations
+internal external var LtSInt32: Operations
 
-external var LtUInt32: Operations
+internal external var LtUInt32: Operations
 
-external var LeSInt32: Operations
+internal external var LeSInt32: Operations
 
-external var LeUInt32: Operations
+internal external var LeUInt32: Operations
 
-external var GtSInt32: Operations
+internal external var GtSInt32: Operations
 
-external var GtUInt32: Operations
+internal external var GtUInt32: Operations
 
-external var GeSInt32: Operations
+internal external var GeSInt32: Operations
 
-external var GeUInt32: Operations
+internal external var GeUInt32: Operations
 
-external var AddInt64: Operations
+internal external var AddInt64: Operations
 
-external var SubInt64: Operations
+internal external var SubInt64: Operations
 
-external var MulInt64: Operations
+internal external var MulInt64: Operations
 
-external var DivSInt64: Operations
+internal external var DivSInt64: Operations
 
-external var DivUInt64: Operations
+internal external var DivUInt64: Operations
 
-external var RemSInt64: Operations
+internal external var RemSInt64: Operations
 
-external var RemUInt64: Operations
+internal external var RemUInt64: Operations
 
-external var AndInt64: Operations
+internal external var AndInt64: Operations
 
-external var OrInt64: Operations
+internal external var OrInt64: Operations
 
-external var XorInt64: Operations
+internal external var XorInt64: Operations
 
-external var ShlInt64: Operations
+internal external var ShlInt64: Operations
 
-external var ShrUInt64: Operations
+internal external var ShrUInt64: Operations
 
-external var ShrSInt64: Operations
+internal external var ShrSInt64: Operations
 
-external var RotLInt64: Operations
+internal external var RotLInt64: Operations
 
-external var RotRInt64: Operations
+internal external var RotRInt64: Operations
 
-external var EqInt64: Operations
+internal external var EqInt64: Operations
 
-external var NeInt64: Operations
+internal external var NeInt64: Operations
 
-external var LtSInt64: Operations
+internal external var LtSInt64: Operations
 
-external var LtUInt64: Operations
+internal external var LtUInt64: Operations
 
-external var LeSInt64: Operations
+internal external var LeSInt64: Operations
 
-external var LeUInt64: Operations
+internal external var LeUInt64: Operations
 
-external var GtSInt64: Operations
+internal external var GtSInt64: Operations
 
-external var GtUInt64: Operations
+internal external var GtUInt64: Operations
 
-external var GeSInt64: Operations
+internal external var GeSInt64: Operations
 
-external var GeUInt64: Operations
+internal external var GeUInt64: Operations
 
-external var AddFloat32: Operations
+internal external var AddFloat32: Operations
 
-external var SubFloat32: Operations
+internal external var SubFloat32: Operations
 
-external var MulFloat32: Operations
+internal external var MulFloat32: Operations
 
-external var DivFloat32: Operations
+internal external var DivFloat32: Operations
 
-external var CopySignFloat32: Operations
+internal external var CopySignFloat32: Operations
 
-external var MinFloat32: Operations
+internal external var MinFloat32: Operations
 
-external var MaxFloat32: Operations
+internal external var MaxFloat32: Operations
 
-external var EqFloat32: Operations
+internal external var EqFloat32: Operations
 
-external var NeFloat32: Operations
+internal external var NeFloat32: Operations
 
-external var LtFloat32: Operations
+internal external var LtFloat32: Operations
 
-external var LeFloat32: Operations
+internal external var LeFloat32: Operations
 
-external var GtFloat32: Operations
+internal external var GtFloat32: Operations
 
-external var GeFloat32: Operations
+internal external var GeFloat32: Operations
 
-external var AddFloat64: Operations
+internal external var AddFloat64: Operations
 
-external var SubFloat64: Operations
+internal external var SubFloat64: Operations
 
-external var MulFloat64: Operations
+internal external var MulFloat64: Operations
 
-external var DivFloat64: Operations
+internal external var DivFloat64: Operations
 
-external var CopySignFloat64: Operations
+internal external var CopySignFloat64: Operations
 
-external var MinFloat64: Operations
+internal external var MinFloat64: Operations
 
-external var MaxFloat64: Operations
+internal external var MaxFloat64: Operations
 
-external var EqFloat64: Operations
+internal external var EqFloat64: Operations
 
-external var NeFloat64: Operations
+internal external var NeFloat64: Operations
 
-external var LtFloat64: Operations
+internal external var LtFloat64: Operations
 
-external var LeFloat64: Operations
+internal external var LeFloat64: Operations
 
-external var GtFloat64: Operations
+internal external var GtFloat64: Operations
 
-external var GeFloat64: Operations
+internal external var GeFloat64: Operations
 
-external var MemorySize: Operations
+internal external var MemorySize: Operations
 
-external var MemoryGrow: Operations
+internal external var MemoryGrow: Operations
 
-external var AtomicRMWAdd: Operations
+internal external var AtomicRMWAdd: Operations
 
-external var AtomicRMWSub: Operations
+internal external var AtomicRMWSub: Operations
 
-external var AtomicRMWAnd: Operations
+internal external var AtomicRMWAnd: Operations
 
-external var AtomicRMWOr: Operations
+internal external var AtomicRMWOr: Operations
 
-external var AtomicRMWXor: Operations
+internal external var AtomicRMWXor: Operations
 
-external var AtomicRMWXchg: Operations
+internal external var AtomicRMWXchg: Operations
 
-external var SplatVecI8x16: Operations
+internal external var SplatVecI8x16: Operations
 
-external var ExtractLaneSVecI8x16: Operations
+internal external var ExtractLaneSVecI8x16: Operations
 
-external var ExtractLaneUVecI8x16: Operations
+internal external var ExtractLaneUVecI8x16: Operations
 
-external var ReplaceLaneVecI8x16: Operations
+internal external var ReplaceLaneVecI8x16: Operations
 
-external var SplatVecI16x8: Operations
+internal external var SplatVecI16x8: Operations
 
-external var ExtractLaneSVecI16x8: Operations
+internal external var ExtractLaneSVecI16x8: Operations
 
-external var ExtractLaneUVecI16x8: Operations
+internal external var ExtractLaneUVecI16x8: Operations
 
-external var ReplaceLaneVecI16x8: Operations
+internal external var ReplaceLaneVecI16x8: Operations
 
-external var SplatVecI32x4: Operations
+internal external var SplatVecI32x4: Operations
 
-external var ExtractLaneVecI32x4: Operations
+internal external var ExtractLaneVecI32x4: Operations
 
-external var ReplaceLaneVecI32x4: Operations
+internal external var ReplaceLaneVecI32x4: Operations
 
-external var SplatVecI64x2: Operations
+internal external var SplatVecI64x2: Operations
 
-external var ExtractLaneVecI64x2: Operations
+internal external var ExtractLaneVecI64x2: Operations
 
-external var ReplaceLaneVecI64x2: Operations
+internal external var ReplaceLaneVecI64x2: Operations
 
-external var SplatVecF32x4: Operations
+internal external var SplatVecF32x4: Operations
 
-external var ExtractLaneVecF32x4: Operations
+internal external var ExtractLaneVecF32x4: Operations
 
-external var ReplaceLaneVecF32x4: Operations
+internal external var ReplaceLaneVecF32x4: Operations
 
-external var SplatVecF64x2: Operations
+internal external var SplatVecF64x2: Operations
 
-external var ExtractLaneVecF64x2: Operations
+internal external var ExtractLaneVecF64x2: Operations
 
-external var ReplaceLaneVecF64x2: Operations
+internal external var ReplaceLaneVecF64x2: Operations
 
-external var EqVecI8x16: Operations
+internal external var EqVecI8x16: Operations
 
-external var NeVecI8x16: Operations
+internal external var NeVecI8x16: Operations
 
-external var LtSVecI8x16: Operations
+internal external var LtSVecI8x16: Operations
 
-external var LtUVecI8x16: Operations
+internal external var LtUVecI8x16: Operations
 
-external var GtSVecI8x16: Operations
+internal external var GtSVecI8x16: Operations
 
-external var GtUVecI8x16: Operations
+internal external var GtUVecI8x16: Operations
 
-external var LeSVecI8x16: Operations
+internal external var LeSVecI8x16: Operations
 
-external var LeUVecI8x16: Operations
+internal external var LeUVecI8x16: Operations
 
-external var GeSVecI8x16: Operations
+internal external var GeSVecI8x16: Operations
 
-external var GeUVecI8x16: Operations
+internal external var GeUVecI8x16: Operations
 
-external var EqVecI16x8: Operations
+internal external var EqVecI16x8: Operations
 
-external var NeVecI16x8: Operations
+internal external var NeVecI16x8: Operations
 
-external var LtSVecI16x8: Operations
+internal external var LtSVecI16x8: Operations
 
-external var LtUVecI16x8: Operations
+internal external var LtUVecI16x8: Operations
 
-external var GtSVecI16x8: Operations
+internal external var GtSVecI16x8: Operations
 
-external var GtUVecI16x8: Operations
+internal external var GtUVecI16x8: Operations
 
-external var LeSVecI16x8: Operations
+internal external var LeSVecI16x8: Operations
 
-external var LeUVecI16x8: Operations
+internal external var LeUVecI16x8: Operations
 
-external var GeSVecI16x8: Operations
+internal external var GeSVecI16x8: Operations
 
-external var GeUVecI16x8: Operations
+internal external var GeUVecI16x8: Operations
 
-external var EqVecI32x4: Operations
+internal external var EqVecI32x4: Operations
 
-external var NeVecI32x4: Operations
+internal external var NeVecI32x4: Operations
 
-external var LtSVecI32x4: Operations
+internal external var LtSVecI32x4: Operations
 
-external var LtUVecI32x4: Operations
+internal external var LtUVecI32x4: Operations
 
-external var GtSVecI32x4: Operations
+internal external var GtSVecI32x4: Operations
 
-external var GtUVecI32x4: Operations
+internal external var GtUVecI32x4: Operations
 
-external var LeSVecI32x4: Operations
+internal external var LeSVecI32x4: Operations
 
-external var LeUVecI32x4: Operations
+internal external var LeUVecI32x4: Operations
 
-external var GeSVecI32x4: Operations
+internal external var GeSVecI32x4: Operations
 
-external var GeUVecI32x4: Operations
+internal external var GeUVecI32x4: Operations
 
-external var EqVecF32x4: Operations
+internal external var EqVecF32x4: Operations
 
-external var NeVecF32x4: Operations
+internal external var NeVecF32x4: Operations
 
-external var LtVecF32x4: Operations
+internal external var LtVecF32x4: Operations
 
-external var GtVecF32x4: Operations
+internal external var GtVecF32x4: Operations
 
-external var LeVecF32x4: Operations
+internal external var LeVecF32x4: Operations
 
-external var GeVecF32x4: Operations
+internal external var GeVecF32x4: Operations
 
-external var EqVecF64x2: Operations
+internal external var EqVecF64x2: Operations
 
-external var NeVecF64x2: Operations
+internal external var NeVecF64x2: Operations
 
-external var LtVecF64x2: Operations
+internal external var LtVecF64x2: Operations
 
-external var GtVecF64x2: Operations
+internal external var GtVecF64x2: Operations
 
-external var LeVecF64x2: Operations
+internal external var LeVecF64x2: Operations
 
-external var GeVecF64x2: Operations
+internal external var GeVecF64x2: Operations
 
-external var NotVec128: Operations
+internal external var NotVec128: Operations
 
-external var AndVec128: Operations
+internal external var AndVec128: Operations
 
-external var OrVec128: Operations
+internal external var OrVec128: Operations
 
-external var XorVec128: Operations
+internal external var XorVec128: Operations
 
-external var AndNotVec128: Operations
+internal external var AndNotVec128: Operations
 
-external var BitselectVec128: Operations
+internal external var BitselectVec128: Operations
 
-external var NegVecI8x16: Operations
+internal external var NegVecI8x16: Operations
 
-external var AnyTrueVecI8x16: Operations
+internal external var AnyTrueVecI8x16: Operations
 
-external var AllTrueVecI8x16: Operations
+internal external var AllTrueVecI8x16: Operations
 
-external var ShlVecI8x16: Operations
+internal external var ShlVecI8x16: Operations
 
-external var ShrSVecI8x16: Operations
+internal external var ShrSVecI8x16: Operations
 
-external var ShrUVecI8x16: Operations
+internal external var ShrUVecI8x16: Operations
 
-external var AddVecI8x16: Operations
+internal external var AddVecI8x16: Operations
 
-external var AddSatSVecI8x16: Operations
+internal external var AddSatSVecI8x16: Operations
 
-external var AddSatUVecI8x16: Operations
+internal external var AddSatUVecI8x16: Operations
 
-external var SubVecI8x16: Operations
+internal external var SubVecI8x16: Operations
 
-external var SubSatSVecI8x16: Operations
+internal external var SubSatSVecI8x16: Operations
 
-external var SubSatUVecI8x16: Operations
+internal external var SubSatUVecI8x16: Operations
 
-external var MulVecI8x16: Operations
+internal external var MulVecI8x16: Operations
 
-external var MinSVecI8x16: Operations
+internal external var MinSVecI8x16: Operations
 
-external var MinUVecI8x16: Operations
+internal external var MinUVecI8x16: Operations
 
-external var MaxSVecI8x16: Operations
+internal external var MaxSVecI8x16: Operations
 
-external var MaxUVecI8x16: Operations
+internal external var MaxUVecI8x16: Operations
 
-external var NegVecI16x8: Operations
+internal external var NegVecI16x8: Operations
 
-external var AnyTrueVecI16x8: Operations
+internal external var AnyTrueVecI16x8: Operations
 
-external var AllTrueVecI16x8: Operations
+internal external var AllTrueVecI16x8: Operations
 
-external var ShlVecI16x8: Operations
+internal external var ShlVecI16x8: Operations
 
-external var ShrSVecI16x8: Operations
+internal external var ShrSVecI16x8: Operations
 
-external var ShrUVecI16x8: Operations
+internal external var ShrUVecI16x8: Operations
 
-external var AddVecI16x8: Operations
+internal external var AddVecI16x8: Operations
 
-external var AddSatSVecI16x8: Operations
+internal external var AddSatSVecI16x8: Operations
 
-external var AddSatUVecI16x8: Operations
+internal external var AddSatUVecI16x8: Operations
 
-external var SubVecI16x8: Operations
+internal external var SubVecI16x8: Operations
 
-external var SubSatSVecI16x8: Operations
+internal external var SubSatSVecI16x8: Operations
 
-external var SubSatUVecI16x8: Operations
+internal external var SubSatUVecI16x8: Operations
 
-external var MulVecI16x8: Operations
+internal external var MulVecI16x8: Operations
 
-external var MinSVecI16x8: Operations
+internal external var MinSVecI16x8: Operations
 
-external var MinUVecI16x8: Operations
+internal external var MinUVecI16x8: Operations
 
-external var MaxSVecI16x8: Operations
+internal external var MaxSVecI16x8: Operations
 
-external var MaxUVecI16x8: Operations
+internal external var MaxUVecI16x8: Operations
 
-external var DotSVecI16x8ToVecI32x4: Operations
+internal external var DotSVecI16x8ToVecI32x4: Operations
 
-external var NegVecI32x4: Operations
+internal external var NegVecI32x4: Operations
 
-external var AnyTrueVecI32x4: Operations
+internal external var AnyTrueVecI32x4: Operations
 
-external var AllTrueVecI32x4: Operations
+internal external var AllTrueVecI32x4: Operations
 
-external var ShlVecI32x4: Operations
+internal external var ShlVecI32x4: Operations
 
-external var ShrSVecI32x4: Operations
+internal external var ShrSVecI32x4: Operations
 
-external var ShrUVecI32x4: Operations
+internal external var ShrUVecI32x4: Operations
 
-external var AddVecI32x4: Operations
+internal external var AddVecI32x4: Operations
 
-external var SubVecI32x4: Operations
+internal external var SubVecI32x4: Operations
 
-external var MulVecI32x4: Operations
+internal external var MulVecI32x4: Operations
 
-external var MinSVecI32x4: Operations
+internal external var MinSVecI32x4: Operations
 
-external var MinUVecI32x4: Operations
+internal external var MinUVecI32x4: Operations
 
-external var MaxSVecI32x4: Operations
+internal external var MaxSVecI32x4: Operations
 
-external var MaxUVecI32x4: Operations
+internal external var MaxUVecI32x4: Operations
 
-external var NegVecI64x2: Operations
+internal external var NegVecI64x2: Operations
 
-external var AnyTrueVecI64x2: Operations
+internal external var AnyTrueVecI64x2: Operations
 
-external var AllTrueVecI64x2: Operations
+internal external var AllTrueVecI64x2: Operations
 
-external var ShlVecI64x2: Operations
+internal external var ShlVecI64x2: Operations
 
-external var ShrSVecI64x2: Operations
+internal external var ShrSVecI64x2: Operations
 
-external var ShrUVecI64x2: Operations
+internal external var ShrUVecI64x2: Operations
 
-external var AddVecI64x2: Operations
+internal external var AddVecI64x2: Operations
 
-external var SubVecI64x2: Operations
+internal external var SubVecI64x2: Operations
 
-external var AbsVecF32x4: Operations
+internal external var AbsVecF32x4: Operations
 
-external var NegVecF32x4: Operations
+internal external var NegVecF32x4: Operations
 
-external var SqrtVecF32x4: Operations
+internal external var SqrtVecF32x4: Operations
 
-external var QFMAVecF32x4: Operations
+internal external var QFMAVecF32x4: Operations
 
-external var QFMSVecF32x4: Operations
+internal external var QFMSVecF32x4: Operations
 
-external var AddVecF32x4: Operations
+internal external var AddVecF32x4: Operations
 
-external var SubVecF32x4: Operations
+internal external var SubVecF32x4: Operations
 
-external var MulVecF32x4: Operations
+internal external var MulVecF32x4: Operations
 
-external var DivVecF32x4: Operations
+internal external var DivVecF32x4: Operations
 
-external var MinVecF32x4: Operations
+internal external var MinVecF32x4: Operations
 
-external var MaxVecF32x4: Operations
+internal external var MaxVecF32x4: Operations
 
-external var AbsVecF64x2: Operations
+internal external var AbsVecF64x2: Operations
 
-external var NegVecF64x2: Operations
+internal external var NegVecF64x2: Operations
 
-external var SqrtVecF64x2: Operations
+internal external var SqrtVecF64x2: Operations
 
-external var QFMAVecF64x2: Operations
+internal external var QFMAVecF64x2: Operations
 
-external var QFMSVecF64x2: Operations
+internal external var QFMSVecF64x2: Operations
 
-external var AddVecF64x2: Operations
+internal external var AddVecF64x2: Operations
 
-external var SubVecF64x2: Operations
+internal external var SubVecF64x2: Operations
 
-external var MulVecF64x2: Operations
+internal external var MulVecF64x2: Operations
 
-external var DivVecF64x2: Operations
+internal external var DivVecF64x2: Operations
 
-external var MinVecF64x2: Operations
+internal external var MinVecF64x2: Operations
 
-external var MaxVecF64x2: Operations
+internal external var MaxVecF64x2: Operations
 
-external var TruncSatSVecF32x4ToVecI32x4: Operations
+internal external var TruncSatSVecF32x4ToVecI32x4: Operations
 
-external var TruncSatUVecF32x4ToVecI32x4: Operations
+internal external var TruncSatUVecF32x4ToVecI32x4: Operations
 
-external var TruncSatSVecF64x2ToVecI64x2: Operations
+internal external var TruncSatSVecF64x2ToVecI64x2: Operations
 
-external var TruncSatUVecF64x2ToVecI64x2: Operations
+internal external var TruncSatUVecF64x2ToVecI64x2: Operations
 
-external var ConvertSVecI32x4ToVecF32x4: Operations
+internal external var ConvertSVecI32x4ToVecF32x4: Operations
 
-external var ConvertUVecI32x4ToVecF32x4: Operations
+internal external var ConvertUVecI32x4ToVecF32x4: Operations
 
-external var ConvertSVecI64x2ToVecF64x2: Operations
+internal external var ConvertSVecI64x2ToVecF64x2: Operations
 
-external var ConvertUVecI64x2ToVecF64x2: Operations
+internal external var ConvertUVecI64x2ToVecF64x2: Operations
 
-external var LoadSplatVec8x16: Operations
+internal external var LoadSplatVec8x16: Operations
 
-external var LoadSplatVec16x8: Operations
+internal external var LoadSplatVec16x8: Operations
 
-external var LoadSplatVec32x4: Operations
+internal external var LoadSplatVec32x4: Operations
 
-external var LoadSplatVec64x2: Operations
+internal external var LoadSplatVec64x2: Operations
 
-external var LoadExtSVec8x8ToVecI16x8: Operations
+internal external var LoadExtSVec8x8ToVecI16x8: Operations
 
-external var LoadExtUVec8x8ToVecI16x8: Operations
+internal external var LoadExtUVec8x8ToVecI16x8: Operations
 
-external var LoadExtSVec16x4ToVecI32x4: Operations
+internal external var LoadExtSVec16x4ToVecI32x4: Operations
 
-external var LoadExtUVec16x4ToVecI32x4: Operations
+internal external var LoadExtUVec16x4ToVecI32x4: Operations
 
-external var LoadExtSVec32x2ToVecI64x2: Operations
+internal external var LoadExtSVec32x2ToVecI64x2: Operations
 
-external var LoadExtUVec32x2ToVecI64x2: Operations
+internal external var LoadExtUVec32x2ToVecI64x2: Operations
 
-external var NarrowSVecI16x8ToVecI8x16: Operations
+internal external var NarrowSVecI16x8ToVecI8x16: Operations
 
-external var NarrowUVecI16x8ToVecI8x16: Operations
+internal external var NarrowUVecI16x8ToVecI8x16: Operations
 
-external var NarrowSVecI32x4ToVecI16x8: Operations
+internal external var NarrowSVecI32x4ToVecI16x8: Operations
 
-external var NarrowUVecI32x4ToVecI16x8: Operations
+internal external var NarrowUVecI32x4ToVecI16x8: Operations
 
-external var WidenLowSVecI8x16ToVecI16x8: Operations
+internal external var WidenLowSVecI8x16ToVecI16x8: Operations
 
-external var WidenHighSVecI8x16ToVecI16x8: Operations
+internal external var WidenHighSVecI8x16ToVecI16x8: Operations
 
-external var WidenLowUVecI8x16ToVecI16x8: Operations
+internal external var WidenLowUVecI8x16ToVecI16x8: Operations
 
-external var WidenHighUVecI8x16ToVecI16x8: Operations
+internal external var WidenHighUVecI8x16ToVecI16x8: Operations
 
-external var WidenLowSVecI16x8ToVecI32x4: Operations
+internal external var WidenLowSVecI16x8ToVecI32x4: Operations
 
-external var WidenHighSVecI16x8ToVecI32x4: Operations
+internal external var WidenHighSVecI16x8ToVecI32x4: Operations
 
-external var WidenLowUVecI16x8ToVecI32x4: Operations
+internal external var WidenLowUVecI16x8ToVecI32x4: Operations
 
-external var WidenHighUVecI16x8ToVecI32x4: Operations
+internal external var WidenHighUVecI16x8ToVecI32x4: Operations
 
-external var SwizzleVec8x16: Operations
+internal external var SwizzleVec8x16: Operations
 
-external interface `T$2` {
+internal external interface `T$2` {
     fun get(index: Number, type: Type): ExpressionRef
     fun set(index: Number, value: ExpressionRef): ExpressionRef
     fun tee(index: Number, value: ExpressionRef, type: Type): ExpressionRef
 }
 
-external interface `T$3` {
+internal external interface `T$3` {
     fun get(name: String, type: Type): ExpressionRef
     fun set(name: String, value: ExpressionRef): ExpressionRef
 }
 
-external interface `T$4` {
+internal external interface `T$4` {
     fun size(): ExpressionRef
     fun grow(value: ExpressionRef): ExpressionRef
     fun init(segment: Number, dest: ExpressionRef, offset: ExpressionRef, size: ExpressionRef): ExpressionRef
@@ -1220,16 +1218,16 @@ external interface `T$4` {
     fun fill(dest: ExpressionRef, value: ExpressionRef, size: ExpressionRef): ExpressionRef
 }
 
-external interface `T$5` {
+internal external interface `T$5` {
     fun drop(segment: Number): ExpressionRef
 }
 
-external interface `T$6` {
+internal external interface `T$6` {
     fun f32(value: ExpressionRef): ExpressionRef
     fun f64(value: ExpressionRef): ExpressionRef
 }
 
-external interface `T$7` {
+internal external interface `T$7` {
     fun add(offset: Number, ptr: ExpressionRef, value: ExpressionRef): ExpressionRef
     fun sub(offset: Number, ptr: ExpressionRef, value: ExpressionRef): ExpressionRef
     fun and(offset: Number, ptr: ExpressionRef, value: ExpressionRef): ExpressionRef
@@ -1239,7 +1237,7 @@ external interface `T$7` {
     fun cmpxchg(offset: Number, ptr: ExpressionRef, expected: ExpressionRef, replacement: ExpressionRef): ExpressionRef
 }
 
-external interface `T$8` {
+internal external interface `T$8` {
     fun load(offset: Number, ptr: ExpressionRef): ExpressionRef
     fun load8_u(offset: Number, ptr: ExpressionRef): ExpressionRef
     fun load16_u(offset: Number, ptr: ExpressionRef): ExpressionRef
@@ -1252,7 +1250,7 @@ external interface `T$8` {
     fun wait(ptr: ExpressionRef, expected: ExpressionRef, timeout: ExpressionRef): ExpressionRef
 }
 
-external interface `T$9` {
+internal external interface `T$9` {
     fun load(offset: Number, align: Number, ptr: ExpressionRef): ExpressionRef
     fun load8_s(offset: Number, align: Number, ptr: ExpressionRef): ExpressionRef
     fun load8_u(offset: Number, align: Number, ptr: ExpressionRef): ExpressionRef
@@ -1303,7 +1301,7 @@ external interface `T$9` {
     fun pop(): ExpressionRef
 }
 
-external interface `T$10` {
+internal external interface `T$10` {
     fun load(offset: Number, ptr: ExpressionRef): ExpressionRef
     fun load8_u(offset: Number, ptr: ExpressionRef): ExpressionRef
     fun load16_u(offset: Number, ptr: ExpressionRef): ExpressionRef
@@ -1319,7 +1317,7 @@ external interface `T$10` {
     fun wait(ptr: ExpressionRef, expected: ExpressionRef, timeout: ExpressionRef): ExpressionRef
 }
 
-external interface `T$11` {
+internal external interface `T$11` {
     fun load(offset: Number, align: Number, ptr: ExpressionRef): ExpressionRef
     fun load8_s(offset: Number, align: Number, ptr: ExpressionRef): ExpressionRef
     fun load8_u(offset: Number, align: Number, ptr: ExpressionRef): ExpressionRef
@@ -1375,7 +1373,7 @@ external interface `T$11` {
     fun pop(): ExpressionRef
 }
 
-external interface `T$12` {
+internal external interface `T$12` {
     fun load(offset: Number, align: Number, ptr: ExpressionRef): ExpressionRef
     fun store(offset: Number, align: Number, ptr: ExpressionRef, value: ExpressionRef): ExpressionRef
     fun const(value: Number): ExpressionRef
@@ -1407,7 +1405,7 @@ external interface `T$12` {
     fun pop(): ExpressionRef
 }
 
-external interface `T$13` {
+internal external interface `T$13` {
     fun load(offset: Number, align: Number, ptr: ExpressionRef): ExpressionRef
     fun store(offset: Number, align: Number, ptr: ExpressionRef, value: ExpressionRef): ExpressionRef
     fun const(value: Number): ExpressionRef
@@ -1439,7 +1437,7 @@ external interface `T$13` {
     fun pop(): ExpressionRef
 }
 
-external interface `T$14` {
+internal external interface `T$14` {
     fun load(offset: Number, align: Number, ptr: ExpressionRef): ExpressionRef
     fun store(offset: Number, align: Number, ptr: ExpressionRef, value: ExpressionRef): ExpressionRef
     fun const(value: Number): ExpressionRef
@@ -1452,7 +1450,7 @@ external interface `T$14` {
     fun pop(): ExpressionRef
 }
 
-external interface `T$15` {
+internal external interface `T$15` {
     fun splat(value: ExpressionRef): ExpressionRef
     fun extract_lane_s(vec: ExpressionRef, index: ExpressionRef): ExpressionRef
     fun extract_lane_u(vec: ExpressionRef, index: ExpressionRef): ExpressionRef
@@ -1489,7 +1487,7 @@ external interface `T$15` {
     fun narrow_i16x8_u(left: ExpressionRef, right: ExpressionRef): ExpressionRef
 }
 
-external interface `T$16` {
+internal external interface `T$16` {
     fun splat(value: ExpressionRef): ExpressionRef
     fun extract_lane_s(vec: ExpressionRef, index: ExpressionRef): ExpressionRef
     fun extract_lane_u(vec: ExpressionRef, index: ExpressionRef): ExpressionRef
@@ -1532,7 +1530,7 @@ external interface `T$16` {
     fun load8x8_u(offset: Number, align: Number, ptr: ExpressionRef): ExpressionRef
 }
 
-external interface `T$17` {
+internal external interface `T$17` {
     fun splat(value: ExpressionRef): ExpressionRef
     fun extract_lane(vec: ExpressionRef, index: ExpressionRef): ExpressionRef
     fun replace_lane(vec: ExpressionRef, index: ExpressionRef, value: ExpressionRef): ExpressionRef
@@ -1565,7 +1563,7 @@ external interface `T$17` {
     fun load16x4_u(offset: Number, align: Number, ptr: ExpressionRef): ExpressionRef
 }
 
-external interface `T$18` {
+internal external interface `T$18` {
     fun splat(value: ExpressionRef): ExpressionRef
     fun extract_lane(vec: ExpressionRef, index: ExpressionRef): ExpressionRef
     fun replace_lane(vec: ExpressionRef, index: ExpressionRef, value: ExpressionRef): ExpressionRef
@@ -1583,7 +1581,7 @@ external interface `T$18` {
     fun load32x2_u(offset: Number, align: Number, ptr: ExpressionRef): ExpressionRef
 }
 
-external interface `T$19` {
+internal external interface `T$19` {
     fun splat(value: ExpressionRef): ExpressionRef
     fun extract_lane(vec: ExpressionRef, index: ExpressionRef): ExpressionRef
     fun replace_lane(vec: ExpressionRef, index: ExpressionRef, value: ExpressionRef): ExpressionRef
@@ -1608,47 +1606,47 @@ external interface `T$19` {
     fun convert_i32x4_u(value: ExpressionRef): ExpressionRef
 }
 
-external interface `T$20` {
+internal external interface `T$20` {
     fun shuffle(left: ExpressionRef, right: ExpressionRef, mask: Array<Number>): ExpressionRef
     fun swizzle(left: ExpressionRef, right: ExpressionRef): ExpressionRef
     fun load_splat(offset: Number, align: Number, ptr: ExpressionRef): ExpressionRef
 }
 
-external interface `T$21` {
+internal external interface `T$21` {
     fun load_splat(offset: Number, align: Number, ptr: ExpressionRef): ExpressionRef
 }
 
-external interface `T$22` {
+internal external interface `T$22` {
     fun pop(): ExpressionRef
 }
 
-external interface `T$23` {
+internal external interface `T$23` {
     fun `null`(): ExpressionRef
     fun is_null(value: ExpressionRef): ExpressionRef
     fun func(name: String): ExpressionRef
 }
 
-external interface `T$24` {
+internal external interface `T$24` {
     fun notify(ptr: ExpressionRef, notifyCount: ExpressionRef): ExpressionRef
     fun fence(): ExpressionRef
 }
 
-external interface `T$25` {
+internal external interface `T$25` {
     fun make(elements: Array<ExportRef>): ExpressionRef
     fun extract(tuple: ExpressionRef, index: Number): ExpressionRef
 }
 
-external interface `T$26` {
+internal external interface `T$26` {
     var imported: Boolean
     var segments: Array<TableElement>
 }
 
-external interface `T$27` {
+internal external interface `T$27` {
     var binary: Uint8Array
     var sourceMap: String?
 }
 
-open external class Module {
+internal open external class Module {
     open var ptr: Number
     open fun block(label: String, children: Array<ExpressionRef>, resultType: Type = definedExternally): ExpressionRef
     open fun `if`(
@@ -1831,7 +1829,7 @@ open external class Module {
     open fun copyExpression(expr: ExpressionRef): ExpressionRef
 }
 
-external interface MemorySegment {
+internal external interface MemorySegment {
     var offset: ExpressionRef
     var data: Uint8Array
     var passive: Boolean?
@@ -1839,91 +1837,91 @@ external interface MemorySegment {
         set(value) = definedExternally
 }
 
-external interface TableElement {
+internal external interface TableElement {
     var offset: ExpressionRef
     var names: Array<String>
 }
 
-external fun wrapModule(ptr: Number): Module
+internal external fun wrapModule(ptr: Number): Module
 
-external fun getExpressionId(expression: ExpressionRef): Number
+internal external fun getExpressionId(expression: ExpressionRef): Number
 
-external fun getExpressionType(expression: ExpressionRef): Type
+internal external fun getExpressionType(expression: ExpressionRef): Type
 
-external fun getExpressionInfo(expression: ExpressionRef): ExpressionInfo
+internal external fun getExpressionInfo(expression: ExpressionRef): ExpressionInfo
 
-external interface MemorySegmentInfo {
+internal external interface MemorySegmentInfo {
     var offset: ExpressionRef
     var data: Uint8Array
     var passive: Boolean
 }
 
-external interface ExpressionInfo {
+internal external interface ExpressionInfo {
     var id: ExpressionIds
     var type: Type
 }
 
-external interface BlockInfo : ExpressionInfo {
+internal external interface BlockInfo : ExpressionInfo {
     var name: String
     var children: Array<ExpressionRef>
 }
 
-external interface IfInfo : ExpressionInfo {
+internal external interface IfInfo : ExpressionInfo {
     var condition: ExpressionRef
     var ifTrue: ExpressionRef
     var ifFalse: ExpressionRef
 }
 
-external interface LoopInfo : ExpressionInfo {
+internal external interface LoopInfo : ExpressionInfo {
     var name: String
     var body: ExpressionRef
 }
 
-external interface BreakInfo : ExpressionInfo {
+internal external interface BreakInfo : ExpressionInfo {
     var name: String
     var condition: ExpressionRef
     var value: ExpressionRef
 }
 
-external interface SwitchInfo : ExpressionInfo {
+internal external interface SwitchInfo : ExpressionInfo {
     var names: Array<String>
     var defaultName: String?
     var condition: ExpressionRef
     var value: ExpressionRef
 }
 
-external interface CallInfo : ExpressionInfo {
+internal external interface CallInfo : ExpressionInfo {
     var isReturn: Boolean
     var target: String
     var operands: Array<ExpressionRef>
 }
 
-external interface CallIndirectInfo : ExpressionInfo {
+internal external interface CallIndirectInfo : ExpressionInfo {
     var isReturn: Boolean
     var target: ExpressionRef
     var operands: Array<ExpressionRef>
 }
 
-external interface LocalGetInfo : ExpressionInfo {
+internal external interface LocalGetInfo : ExpressionInfo {
     var index: Number
 }
 
-external interface LocalSetInfo : ExpressionInfo {
+internal external interface LocalSetInfo : ExpressionInfo {
     var isTee: Boolean
     var index: Number
     var value: ExpressionRef
 }
 
-external interface GlobalGetInfo : ExpressionInfo {
+internal external interface GlobalGetInfo : ExpressionInfo {
     var name: String
 }
 
-external interface GlobalSetInfo : ExpressionInfo {
+internal external interface GlobalSetInfo : ExpressionInfo {
     var name: String
     var value: ExpressionRef
 }
 
-external interface LoadInfo : ExpressionInfo {
+internal external interface LoadInfo : ExpressionInfo {
     var isAtomic: Boolean
     var isSigned: Boolean
     var offset: Number
@@ -1932,7 +1930,7 @@ external interface LoadInfo : ExpressionInfo {
     var ptr: ExpressionRef
 }
 
-external interface StoreInfo : ExpressionInfo {
+internal external interface StoreInfo : ExpressionInfo {
     var isAtomic: Boolean
     var offset: Number
     var bytes: Number
@@ -1941,53 +1939,53 @@ external interface StoreInfo : ExpressionInfo {
     var value: ExpressionRef
 }
 
-external interface `T$28` {
+internal external interface `T$28` {
     var low: Number
     var high: Number
 }
 
-external interface ConstInfo : ExpressionInfo {
+internal external interface ConstInfo : ExpressionInfo {
     var value: dynamic /* Number | `T$28` */
         get() = definedExternally
         set(value) = definedExternally
 }
 
-external interface UnaryInfo : ExpressionInfo {
+internal external interface UnaryInfo : ExpressionInfo {
     var op: Operations
     var value: ExpressionRef
 }
 
-external interface BinaryInfo : ExpressionInfo {
+internal external interface BinaryInfo : ExpressionInfo {
     var op: Operations
     var left: ExpressionRef
     var right: ExpressionRef
 }
 
-external interface SelectInfo : ExpressionInfo {
+internal external interface SelectInfo : ExpressionInfo {
     var ifTrue: ExpressionRef
     var ifFalse: ExpressionRef
     var condition: ExpressionRef
 }
 
-external interface DropInfo : ExpressionInfo {
+internal external interface DropInfo : ExpressionInfo {
     var value: ExpressionRef
 }
 
-external interface ReturnInfo : ExpressionInfo {
+internal external interface ReturnInfo : ExpressionInfo {
     var value: ExpressionRef
 }
 
-external interface NopInfo : ExpressionInfo
+internal external interface NopInfo : ExpressionInfo
 
-external interface UnreachableInfo : ExpressionInfo
+internal external interface UnreachableInfo : ExpressionInfo
 
-external interface HostInfo : ExpressionInfo {
+internal external interface HostInfo : ExpressionInfo {
     var op: Operations
     var nameOperand: String?
     var operands: Array<ExpressionRef>
 }
 
-external interface AtomicRMWInfo : ExpressionInfo {
+internal external interface AtomicRMWInfo : ExpressionInfo {
     var op: Operations
     var bytes: Number
     var offset: Number
@@ -1995,7 +1993,7 @@ external interface AtomicRMWInfo : ExpressionInfo {
     var value: ExpressionRef
 }
 
-external interface AtomicCmpxchgInfo : ExpressionInfo {
+internal external interface AtomicCmpxchgInfo : ExpressionInfo {
     var bytes: Number
     var offset: Number
     var ptr: ExpressionRef
@@ -2003,123 +2001,123 @@ external interface AtomicCmpxchgInfo : ExpressionInfo {
     var replacement: ExpressionRef
 }
 
-external interface AtomicWaitInfo : ExpressionInfo {
+internal external interface AtomicWaitInfo : ExpressionInfo {
     var ptr: ExpressionRef
     var expected: ExpressionRef
     var timeout: ExpressionRef
     var expectedType: Type
 }
 
-external interface AtomicNotifyInfo : ExpressionInfo {
+internal external interface AtomicNotifyInfo : ExpressionInfo {
     var ptr: ExpressionRef
     var notifyCount: ExpressionRef
 }
 
-external interface AtomicFenceInfo : ExpressionInfo {
+internal external interface AtomicFenceInfo : ExpressionInfo {
     var order: Number
 }
 
-external interface SIMDExtractInfo : ExpressionInfo {
+internal external interface SIMDExtractInfo : ExpressionInfo {
     var op: Operations
     var vec: ExpressionRef
     var index: ExpressionRef
 }
 
-external interface SIMDReplaceInfo : ExpressionInfo {
+internal external interface SIMDReplaceInfo : ExpressionInfo {
     var op: Operations
     var vec: ExpressionRef
     var index: ExpressionRef
     var value: ExpressionRef
 }
 
-external interface SIMDShuffleInfo : ExpressionInfo {
+internal external interface SIMDShuffleInfo : ExpressionInfo {
     var left: ExpressionRef
     var right: ExpressionRef
     var mask: Array<Number>
 }
 
-external interface SIMDTernaryInfo : ExpressionInfo {
+internal external interface SIMDTernaryInfo : ExpressionInfo {
     var op: Operations
     var a: ExpressionRef
     var b: ExpressionRef
     var c: ExpressionRef
 }
 
-external interface SIMDShiftInfo : ExpressionInfo {
+internal external interface SIMDShiftInfo : ExpressionInfo {
     var op: Operations
     var vec: ExpressionRef
     var shift: ExpressionRef
 }
 
-external interface SIMDLoadInfo : ExpressionInfo {
+internal external interface SIMDLoadInfo : ExpressionInfo {
     var op: Operations
     var offset: Number
     var align: Number
     var ptr: ExpressionRef
 }
 
-external interface MemoryInitInfo : ExpressionInfo {
+internal external interface MemoryInitInfo : ExpressionInfo {
     var segment: Number
     var dest: ExpressionRef
     var offset: ExpressionRef
     var size: ExpressionRef
 }
 
-external interface MemoryDropInfo : ExpressionInfo {
+internal external interface MemoryDropInfo : ExpressionInfo {
     var segment: Number
 }
 
-external interface MemoryCopyInfo : ExpressionInfo {
+internal external interface MemoryCopyInfo : ExpressionInfo {
     var dest: ExpressionRef
     var source: ExpressionRef
     var size: ExpressionRef
 }
 
-external interface MemoryFillInfo : ExpressionInfo {
+internal external interface MemoryFillInfo : ExpressionInfo {
     var dest: ExpressionRef
     var value: ExpressionRef
     var size: ExpressionRef
 }
 
-external interface RefNullInfo : ExpressionInfo
+internal external interface RefNullInfo : ExpressionInfo
 
-external interface RefIsNullInfo : ExpressionInfo {
+internal external interface RefIsNullInfo : ExpressionInfo {
     var value: ExpressionRef
 }
 
-external interface RefFuncInfo : ExpressionInfo {
+internal external interface RefFuncInfo : ExpressionInfo {
     var func: String
 }
 
-external interface TryInfo : ExpressionInfo {
+internal external interface TryInfo : ExpressionInfo {
     var body: ExpressionRef
     var catchBody: ExpressionRef
 }
 
-external interface ThrowInfo : ExpressionInfo {
+internal external interface ThrowInfo : ExpressionInfo {
     var event: String
     var operands: Array<ExpressionRef>
 }
 
-external interface RethrowInfo : ExpressionInfo {
+internal external interface RethrowInfo : ExpressionInfo {
     var exnref: ExpressionRef
 }
 
-external interface BrOnExnInfo : ExpressionInfo {
+internal external interface BrOnExnInfo : ExpressionInfo {
     var name: String
     var event: String
     var exnref: ExpressionRef
 }
 
-external interface PopInfo : ExpressionInfo
+internal external interface PopInfo : ExpressionInfo
 
-external interface PushInfo : ExpressionInfo {
+internal external interface PushInfo : ExpressionInfo {
     var value: ExpressionRef
 }
 
-external fun getFunctionInfo(func: FunctionRef): FunctionInfo
+internal external fun getFunctionInfo(func: FunctionRef): FunctionInfo
 
-external interface FunctionInfo {
+internal external interface FunctionInfo {
     var name: String
     var module: String?
     var base: String?
@@ -2129,9 +2127,9 @@ external interface FunctionInfo {
     var body: ExpressionRef
 }
 
-external fun getGlobalInfo(global: GlobalRef): GlobalInfo
+internal external fun getGlobalInfo(global: GlobalRef): GlobalInfo
 
-external interface GlobalInfo {
+internal external interface GlobalInfo {
     var name: String
     var module: String?
     var base: String?
@@ -2140,17 +2138,17 @@ external interface GlobalInfo {
     var init: ExpressionRef
 }
 
-external fun getExportInfo(export_: ExportRef): ExportInfo
+internal external fun getExportInfo(export_: ExportRef): ExportInfo
 
-external interface ExportInfo {
+internal external interface ExportInfo {
     var kind: ExternalKinds
     var name: String
     var value: String
 }
 
-external fun getEventInfo(event: EventRef): EventInfo
+internal external fun getEventInfo(event: EventRef): EventInfo
 
-external interface EventInfo {
+internal external interface EventInfo {
     var name: String
     var module: String?
     var base: String?
@@ -2159,9 +2157,9 @@ external interface EventInfo {
     var results: Type
 }
 
-external fun getSideEffects(expr: ExpressionRef, features: Features): SideEffects
+internal external fun getSideEffects(expr: ExpressionRef, features: Features): SideEffects
 
-external enum class SideEffects {
+internal external enum class SideEffects {
     None,
     Branches,
     Calls,
@@ -2177,51 +2175,51 @@ external enum class SideEffects {
     Any
 }
 
-external fun emitText(expression: ExpressionRef): String
+internal external fun emitText(expression: ExpressionRef): String
 
-external fun emitText(expression: Module): String
+internal external fun emitText(expression: Module): String
 
-external fun readBinary(data: Uint8Array): Module
+internal external fun readBinary(data: Uint8Array): Module
 
-external fun parseText(text: String): Module
+internal external fun parseText(text: String): Module
 
-external fun getOptimizeLevel(): Number
+internal external fun getOptimizeLevel(): Number
 
-external fun setOptimizeLevel(level: Number): Number
+internal external fun setOptimizeLevel(level: Number): Number
 
-external fun getShrinkLevel(): Number
+internal external fun getShrinkLevel(): Number
 
-external fun setShrinkLevel(level: Number): Number
+internal external fun setShrinkLevel(level: Number): Number
 
-external fun getDebugInfo(): Boolean
+internal external fun getDebugInfo(): Boolean
 
-external fun setDebugInfo(on: Boolean)
+internal external fun setDebugInfo(on: Boolean)
 
-external fun getLowMemoryUnused(): Boolean
+internal external fun getLowMemoryUnused(): Boolean
 
-external fun setLowMemoryUnused(on: Boolean)
+internal external fun setLowMemoryUnused(on: Boolean)
 
-external fun getPassArgument(key: String): String?
+internal external fun getPassArgument(key: String): String?
 
-external fun setPassArgument(key: String, value: String?)
+internal external fun setPassArgument(key: String, value: String?)
 
-external fun clearPassArguments()
+internal external fun clearPassArguments()
 
-external fun getAlwaysInlineMaxSize(): Number
+internal external fun getAlwaysInlineMaxSize(): Number
 
-external fun setAlwaysInlineMaxSize(size: Number)
+internal external fun setAlwaysInlineMaxSize(size: Number)
 
-external fun getFlexibleInlineMaxSize(): Number
+internal external fun getFlexibleInlineMaxSize(): Number
 
-external fun setFlexibleInlineMaxSize(size: Number)
+internal external fun setFlexibleInlineMaxSize(size: Number)
 
-external fun getOneCallerInlineMaxSize(): Number
+internal external fun getOneCallerInlineMaxSize(): Number
 
-external fun setOneCallerInlineMaxSize(size: Number)
+internal external fun setOneCallerInlineMaxSize(size: Number)
 
-external fun exit(status: Number)
+internal external fun exit(status: Number)
 
-open external class Relooper(module: Module) {
+internal open external class Relooper(module: Module) {
     open fun addBlock(expression: ExpressionRef): RelooperBlockRef
     open fun addBranch(from: RelooperBlockRef, to: RelooperBlockRef, condition: ExpressionRef, code: ExpressionRef)
     open fun addBlockWithSwitch(code: ExpressionRef, condition: ExpressionRef): RelooperBlockRef

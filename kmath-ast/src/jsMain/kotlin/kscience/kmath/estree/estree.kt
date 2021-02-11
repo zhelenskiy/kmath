@@ -4,8 +4,8 @@ import kscience.kmath.ast.MST
 import kscience.kmath.ast.MST.*
 import kscience.kmath.ast.MstExpression
 import kscience.kmath.estree.internal.ESTreeBuilder
-import kscience.kmath.estree.internal.estree.BaseExpression
 import kscience.kmath.expressions.Expression
+import kscience.kmath.internal.estree.BaseExpression
 import kscience.kmath.operations.Algebra
 import kscience.kmath.operations.NumericAlgebra
 

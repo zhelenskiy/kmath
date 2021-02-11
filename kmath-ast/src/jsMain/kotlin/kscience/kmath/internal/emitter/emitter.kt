@@ -1,4 +1,4 @@
-package kscience.kmath.estree.internal.emitter
+package kscience.kmath.internal.emitter
 
 internal open external class Emitter {
     constructor(obj: Any)

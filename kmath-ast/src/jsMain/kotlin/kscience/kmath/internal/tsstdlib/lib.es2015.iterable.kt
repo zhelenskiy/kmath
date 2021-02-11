@@ -1,4 +1,4 @@
-package kscience.kmath.estree.internal.tsstdlib
+package kscience.kmath.internal.tsstdlib
 
 internal external interface IteratorYieldResult<TYield> {
     var done: Boolean?

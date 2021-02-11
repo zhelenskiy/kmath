@@ -1,13 +1,17 @@
 package kscience.kmath.wasm.internal
 
-import WebAssembly.Instance
-import binaryen.*
+import kscience.kmath.internal.webassembly.Instance
 import kscience.kmath.ast.MST
 import kscience.kmath.expressions.Expression
 import kscience.kmath.expressions.StringSymbol
+import kscience.kmath.internal.binaryen.*
+import kscience.kmath.internal.binaryen.ExpressionRef
+import kscience.kmath.internal.binaryen.Type
+import kscience.kmath.internal.binaryen.createType
+import kscience.kmath.internal.binaryen.setOptimizeLevel
 import kscience.kmath.operations.*
-import WebAssembly.Module as WasmModule
-import binaryen.Module as BinaryenModule
+import kscience.kmath.internal.webassembly.Module as WasmModule
+import kscience.kmath.internal.binaryen.Module as BinaryenModule
 
 private val spreader = eval("(obj, args) => obj(...args)")
 

@@ -57,7 +57,5 @@ internal class ExpressionsInterpretersBenchmark {
         repeat(1000000) {
             sum += expr("x" to random.nextDouble())
         }
-
-        println(sum)
     }
 }

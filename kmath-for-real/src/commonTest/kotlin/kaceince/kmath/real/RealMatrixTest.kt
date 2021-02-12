@@ -1,9 +1,9 @@
 package kaceince.kmath.real
 
-import kscience.kmath.linear.VirtualMatrix
+import kscience.kmath.linear.Matrix
 import kscience.kmath.linear.build
+import kscience.kmath.misc.UnstableKMathAPI
 import kscience.kmath.real.*
-import kscience.kmath.structures.Matrix
 import kscience.kmath.structures.contentEquals
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -42,7 +42,7 @@ internal class RealMatrixTest {
             1.0, 0.0, 0.0,
             0.0, 1.0, 2.0
         )
-        assertEquals(VirtualMatrix.wrap(matrix2), matrix1.repeatStackVertical(3))
+        assertEquals(matrix2, matrix1.repeatStackVertical(3))
     }
 
     @Test
@@ -92,6 +92,7 @@ internal class RealMatrixTest {
         assertEquals(matrix1.pow(3), matrix3)
     }
 
+    @OptIn(UnstableKMathAPI::class)
     @Test
     fun testTwoMatrixOperations() {
         val matrix1 = Matrix.build(2, 3)(

@@ -83,7 +83,7 @@ internal class AsmBuilder<T>(
                 ACC_PUBLIC or ACC_FINAL,
                 "invoke",
                 getMethodDescriptor(tType, MAP_TYPE),
-                "(L${MAP_TYPE.internalName}<${SYMBOL_TYPE.descriptor}${if (Modifier.isFinal(classOfT.modifiers)) "" else "+"}${tType.descriptor}>;)${tType.descriptor}",
+                "(L${MAP_TYPE.internalName}<${SYMBOL_TYPE.descriptor}+${tType.descriptor}>;)${tType.descriptor}",
                 null,
             ).instructionAdapter {
                 invokeMethodVisitor = this
@@ -191,7 +191,7 @@ internal class AsmBuilder<T>(
         }
 
         val cls = classLoader.defineClass(className, classWriter.toByteArray())
-        java.io.File("dump.class").writeBytes(classWriter.toByteArray())
+        // java.io.File("dump.class").writeBytes(classWriter.toByteArray())
         val l = MethodHandles.publicLookup()
 
         if (hasConstants)

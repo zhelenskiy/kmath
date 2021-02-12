@@ -1,13 +1,7 @@
 package kscience.kmath.real
 
-import kscience.kmath.linear.FeaturedMatrix
-import kscience.kmath.linear.MatrixContext
-import kscience.kmath.linear.RealMatrixContext.elementContext
-import kscience.kmath.linear.VirtualMatrix
-import kscience.kmath.linear.inverseWithLUP
+import kscience.kmath.linear.*
 import kscience.kmath.misc.UnstableKMathAPI
-import kscience.kmath.operations.invoke
-import kscience.kmath.operations.sum
 import kscience.kmath.structures.Buffer
 import kscience.kmath.structures.RealBuffer
 import kscience.kmath.structures.asIterable
@@ -25,7 +19,7 @@ import kotlin.math.pow
  *  Functions that help create a real (Double) matrix
  */
 
-public typealias RealMatrix = FeaturedMatrix<Double>
+public typealias RealMatrix = Matrix<Double>
 
 public fun realMatrix(rowNum: Int, colNum: Int, initializer: (i: Int, j: Int) -> Double): RealMatrix =
     MatrixContext.real.produce(rowNum, colNum, initializer)
@@ -122,8 +116,7 @@ public fun RealMatrix.extractColumn(columnIndex: Int): RealMatrix =
     extractColumns(columnIndex..columnIndex)
 
 public fun RealMatrix.sumByColumn(): RealBuffer = RealBuffer(colNum) { j ->
-    val column = columns[j]
-    elementContext { sum(column.asIterable()) }
+    columns[j].asIterable().sum()
 }
 
 public fun RealMatrix.minByColumn(): RealBuffer = RealBuffer(colNum) { j ->
@@ -147,7 +140,7 @@ public fun RealMatrix.min(): Double? = elements().map { (_, value) -> value }.mi
 public fun RealMatrix.max(): Double? = elements().map { (_, value) -> value }.maxOrNull()
 public fun RealMatrix.average(): Double = elements().map { (_, value) -> value }.average()
 
-public inline fun RealMatrix.map(transform: (Double) -> Double): RealMatrix =
+public inline fun RealMatrix.map(crossinline transform: (Double) -> Double): RealMatrix =
     MatrixContext.real.produce(rowNum, colNum) { i, j ->
         transform(get(i, j))
     }
@@ -155,7 +148,7 @@ public inline fun RealMatrix.map(transform: (Double) -> Double): RealMatrix =
 /**
  * Inverse a square real matrix using LUP decomposition
  */
-public fun RealMatrix.inverseWithLUP(): RealMatrix = MatrixContext.real.inverseWithLUP(this)
+public fun RealMatrix.inverseWithLup(): RealMatrix = MatrixContext.real.inverseWithLup(this)
 
 //extended operations
 

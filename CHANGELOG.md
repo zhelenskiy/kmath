@@ -4,34 +4,43 @@
 ### Added
 - `fun` annotation for SAM interfaces in library
 - Explicit `public` visibility for all public APIs
-- Better trigonometric and hyperbolic functions for `AutoDiffField` (https://github.com/mipt-npm/kmath/pull/140).
+- Better trigonometric and hyperbolic functions for `AutoDiffField` (https://github.com/mipt-npm/kmath/pull/140)
 - Automatic README generation for features (#139)
 - Native support for `memory`, `core` and `dimensions`
-- `kmath-ejml` to supply EJML SimpleMatrix wrapper (https://github.com/mipt-npm/kmath/pull/136).
+- `kmath-ejml` to supply EJML SimpleMatrix wrapper (https://github.com/mipt-npm/kmath/pull/136)
 - A separate `Symbol` entity, which is used for global unbound symbol.
 - A `Symbol` indexing scope.
 - Basic optimization API for Commons-math.
 - Chi squared optimization for array-like data in CM
 - `Fitting` utility object in prob/stat
-- ND4J support module submitting `NDStructure` and `NDAlgebra` over `INDArray`.
-- Coroutine-deterministic Monte-Carlo scope with a random number generator.
-- Some minor utilities to `kmath-for-real`.
+- ND4J support module submitting `NDStructure` and `NDAlgebra` over `INDArray`
+- Coroutine-deterministic Monte-Carlo scope with a random number generator
+- Some minor utilities to `kmath-for-real`
 - Generic operation result parameter to `MatrixContext`
+- New `MatrixFeature` interfaces for matrix decompositions
+- Basic Quaternion vector support in `kmath-complex`.
 
 ### Changed
-- Package changed from `scientifik` to `kscience.kmath`.
-- Gradle version: 6.6 -> 6.7.1
+- Package changed from `scientifik` to `kscience.kmath`
+- Gradle version: 6.6 -> 6.8
 - Minor exceptions refactor (throwing `IllegalArgumentException` by argument checks instead of `IllegalStateException`)
-- `Polynomial` secondary constructor made function.
-- Kotlin version: 1.3.72 -> 1.4.20
-- `kmath-ast` doesn't depend on heavy `kotlin-reflect` library.
+- `Polynomial` secondary constructor made function
+- Kotlin version: 1.3.72 -> 1.4.21
+- `kmath-ast` doesn't depend on heavy `kotlin-reflect` library
 - Full autodiff refactoring based on `Symbol`
 - `kmath-prob` renamed to `kmath-stat`
 - Grid generators moved to `kmath-for-real`
 - Use `Point<Double>` instead of specialized type in `kmath-for-real`
 - Optimized dot product for buffer matrices moved to `kmath-for-real`
 - EjmlMatrix context is an object
-- Matrix LUP `inverse` renamed to `inverseWithLUP`
+- Matrix LUP `inverse` renamed to `inverseWithLup`
+- `NumericAlgebra` moved outside of regular algebra chain (`Ring` no longer implements it).
+- Features moved to NDStructure and became transparent.
+- Capitalization of LUP in many names changed to Lup.
+- Refactored `NDStructure` algebra to be more simple, preferring under-the-hood conversion to explicit NDStructure types
+- Refactor histograms. They are marked as prototype
+- `Complex` and related features moved to a separate module `kmath-complex`
+- Refactor AlgebraElement
 
 ### Deprecated
 
@@ -40,6 +49,7 @@
 - Support of `legacy` JS backend (we will support only IR)
 - `toGrid` method.
 - Public visibility of `BufferAccessor2D`
+- `Real` class
 
 ### Fixed
 - `symbol` method in `MstExtendedField` (https://github.com/mipt-npm/kmath/pull/140)

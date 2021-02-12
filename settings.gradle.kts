@@ -8,8 +8,8 @@ pluginManagement {
         maven("https://dl.bintray.com/kotlin/kotlinx")
     }
 
-    val toolsVersion = "0.7.1"
-    val kotlinVersion = "1.4.21"
+    val toolsVersion = "0.7.5"
+    val kotlinVersion = "1.4.30"
 
     plugins {
         id("kotlinx.benchmark") version "0.2.0-dev-20"
@@ -26,9 +26,10 @@ rootProject.name = "kmath"
 
 include(
     ":kmath-memory",
+    ":kmath-complex",
     ":kmath-core",
-    ":kmath-functions",
     ":kmath-coroutines",
+    ":kmath-functions",
     ":kmath-histograms",
     ":kmath-commons",
     ":kmath-viktor",

@@ -1,12 +1,12 @@
 package kscience.kmath.linear
 
+import kscience.kmath.nd.NDStructure
+import kscience.kmath.nd.as2D
 import kscience.kmath.operations.invoke
-import kscience.kmath.structures.Matrix
-import kscience.kmath.structures.NDStructure
-import kscience.kmath.structures.as2D
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
+@Suppress("UNUSED_VARIABLE")
 class MatrixTest {
     @Test
     fun testTranspose() {

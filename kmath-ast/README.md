@@ -138,4 +138,5 @@ An example of emitted WASM IR in the form of WAT:
 
 #### Known issues
 
-- This feature uses `eval` which can be unavailable in several environments.
+- ESTree expression compilation uses `eval` which can be unavailable in several environments.
+- WebAssembly isn't supported by old versions of browsers (see https://webassembly.org/roadmap/).

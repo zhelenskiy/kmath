@@ -1,5 +1,5 @@
 plugins {
-    id("ru.mipt.npm.mpp")
+    id("ru.mipt.npm.gradle.mpp")
 }
 
 kotlin.sourceSets {
@@ -7,6 +7,7 @@ kotlin.sourceSets {
         languageSettings.apply {
             useExperimentalAnnotation("kotlinx.coroutines.FlowPreview")
             useExperimentalAnnotation("kotlinx.coroutines.ExperimentalCoroutinesApi")
+            useExperimentalAnnotation("kotlinx.coroutines.ObsoleteCoroutinesApi")
         }
     }
 

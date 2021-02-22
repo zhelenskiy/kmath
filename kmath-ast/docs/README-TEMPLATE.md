@@ -22,18 +22,18 @@ RealField.mstInField { symbol("x") + 2 }.compile()
 … leads to generation of bytecode, which can be decompiled to the following Java class:
 
 ```java
-package kscience.kmath.asm.generated;
+package space.kscience.kmath.asm.generated;
 
 import java.util.Map;
 import kotlin.jvm.functions.Function2;
-import kscience.kmath.asm.internal.MapIntrinsics;
-import kscience.kmath.expressions.Expression;
-import kscience.kmath.expressions.Symbol;
+import space.kscience.kmath.asm.internal.MapIntrinsics;
+import space.kscience.kmath.expressions.Expression;
+import space.kscience.kmath.expressions.Symbol;
 
 public final class AsmCompiledExpression_45045_0 implements Expression<Double> {
     private final Object[] constants;
 
-    public final Double invoke(Map<Symbol, Double> arguments) {
+    public final Double invoke(Map<Symbol, ? extends Double> arguments) {
         return (Double)((Function2)this.constants[0]).invoke((Double)MapIntrinsics.getOrFail(arguments, "x"), 2);
     }
 
@@ -78,7 +78,7 @@ var executable = function (constants, arguments) {
 An (experimental and slow for now) alternative is WebAssembly code generation:
 
 ```kotlin
-import kscience.kmath.wasm.*
+import space.kscience.kmath.wasm.*
 
 RealField.mstInField { symbol("x") + 2 }.compile()
 ```

@@ -1,14 +1,14 @@
-package kscience.kmath.wasm.internal
+package space.kscience.kmath.wasm.internal
 
-import kscience.kmath.ast.MST
-import kscience.kmath.ast.MST.*
-import kscience.kmath.expressions.Expression
-import kscience.kmath.expressions.StringSymbol
-import kscience.kmath.internal.binaryen.*
-import kscience.kmath.internal.webassembly.Instance
-import kscience.kmath.operations.*
-import kscience.kmath.internal.binaryen.Module as BinaryenModule
-import kscience.kmath.internal.webassembly.Module as WasmModule
+import space.kscience.kmath.ast.MST
+import space.kscience.kmath.ast.MST.*
+import space.kscience.kmath.expressions.Expression
+import space.kscience.kmath.expressions.StringSymbol
+import space.kscience.kmath.internal.binaryen.*
+import space.kscience.kmath.internal.webassembly.Instance
+import space.kscience.kmath.operations.*
+import space.kscience.kmath.internal.binaryen.Module as BinaryenModule
+import space.kscience.kmath.internal.webassembly.Module as WasmModule
 
 private val spreader = eval("(obj, args) => obj(...args)")
 
@@ -23,7 +23,7 @@ internal sealed class WasmBuilder<T>(
 
     open fun visitSymbolic(mst: MST.Symbolic): ExpressionRef {
         try {
-            algebra.symbol(mst.value)
+            algebra.bindSymbol(mst.value)
         } catch (ignored: Throwable) {
             null
         }?.let { return visitNumeric(Numeric(it)) }

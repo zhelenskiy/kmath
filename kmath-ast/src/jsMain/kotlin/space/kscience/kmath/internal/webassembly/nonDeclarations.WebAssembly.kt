@@ -5,9 +5,9 @@
     "NO_EXPLICIT_VISIBILITY_IN_API_MODE_WARNING",
 )
 
-package kscience.kmath.internal.webassembly
+package space.kscience.kmath.internal.webassembly
 
-import kscience.kmath.internal.tsstdlib.Record
+import space.kscience.kmath.internal.tsstdlib.Record
 
 internal typealias Exports = Record<String, dynamic /* Function<*> | Global | Memory | Table */>
 

@@ -1,6 +1,6 @@
-package kscience.kmath.wasm.internal
+package space.kscience.kmath.wasm.internal
 
-import kscience.kmath.internal.base64.toUint8Array
+import space.kscience.kmath.internal.base64.toUint8Array
 
 internal val f64StandardFunctions by lazy { toUint8Array(B) }
 

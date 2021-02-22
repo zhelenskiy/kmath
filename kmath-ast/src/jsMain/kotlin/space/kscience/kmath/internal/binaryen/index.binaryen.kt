@@ -11,7 +11,7 @@
 @file:JsModule("binaryen")
 @file:JsNonModule
 
-package kscience.kmath.internal.binaryen
+package space.kscience.kmath.internal.binaryen
 
 import org.khronos.webgl.Uint8Array
 import kotlin.js.Promise

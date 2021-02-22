@@ -8,9 +8,9 @@
     "ClassName",
 )
 
-package kscience.kmath.internal.webassembly
+package space.kscience.kmath.internal.webassembly
 
-import kscience.kmath.internal.tsstdlib.PromiseLike
+import space.kscience.kmath.internal.tsstdlib.PromiseLike
 import org.khronos.webgl.ArrayBuffer
 import org.khronos.webgl.ArrayBufferView
 import org.khronos.webgl.Uint8Array

@@ -10,7 +10,7 @@
 @file:JsNonModule
 @file:JsModule("js-base64")
 
-package kscience.kmath.internal.base64
+package space.kscience.kmath.internal.base64
 
 import org.khronos.webgl.Uint8Array
 

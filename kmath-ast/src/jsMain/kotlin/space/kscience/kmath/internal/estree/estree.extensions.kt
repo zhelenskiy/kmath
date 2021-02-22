@@ -1,4 +1,4 @@
-package kscience.kmath.internal.estree
+package space.kscience.kmath.internal.estree
 
 internal fun Program(sourceType: String, vararg body: dynamic) = object : Program {
     override var type = "Program"

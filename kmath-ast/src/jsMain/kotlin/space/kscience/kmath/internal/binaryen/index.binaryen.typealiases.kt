@@ -1,6 +1,6 @@
 @file:Suppress("PackageDirectoryMismatch", "NO_EXPLICIT_VISIBILITY_IN_API_MODE_WARNING", "KDocMissingDocumentation")
 
-package kscience.kmath.internal.binaryen
+package space.kscience.kmath.internal.binaryen
 
 internal typealias Type = Number
 internal typealias ExpressionRef = Number

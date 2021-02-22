@@ -1,6 +1,6 @@
 @file:Suppress("UNUSED_TYPEALIAS_PARAMETER", "DEPRECATION")
 
-package kscience.kmath.internal.tsstdlib
+package space.kscience.kmath.internal.tsstdlib
 
 import kotlin.js.RegExp
 

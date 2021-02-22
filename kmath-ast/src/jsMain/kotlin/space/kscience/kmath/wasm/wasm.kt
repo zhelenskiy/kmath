@@ -1,12 +1,12 @@
-package kscience.kmath.wasm
+package space.kscience.kmath.wasm
 
-import kscience.kmath.ast.MST
-import kscience.kmath.ast.MstExpression
-import kscience.kmath.expressions.Expression
-import kscience.kmath.operations.IntRing
-import kscience.kmath.operations.RealField
-import kscience.kmath.wasm.internal.IntWasmBuilder
-import kscience.kmath.wasm.internal.RealWasmBuilder
+import space.kscience.kmath.ast.MST
+import space.kscience.kmath.ast.MstExpression
+import space.kscience.kmath.expressions.Expression
+import space.kscience.kmath.operations.IntRing
+import space.kscience.kmath.operations.RealField
+import space.kscience.kmath.wasm.internal.IntWasmBuilder
+import space.kscience.kmath.wasm.internal.RealWasmBuilder
 
 /**
  * Compiles an [MST] to WASM in the context of reals.

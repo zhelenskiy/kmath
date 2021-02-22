@@ -1,9 +1,9 @@
 @file:JsModule("astring")
 @file:JsNonModule
 
-package kscience.kmath.internal.astring
+package space.kscience.kmath.internal.astring
 
-import kscience.kmath.internal.estree.BaseNode
+import space.kscience.kmath.internal.estree.BaseNode
 
 internal external interface Options {
     var indent: String?

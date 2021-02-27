@@ -39,7 +39,7 @@ dependencies {
     implementation(project(":kmath-dimensions"))
     implementation(project(":kmath-ejml"))
     implementation(project(":kmath-nd4j"))
-
+    implementation(project(":kmath-units"))
     implementation(project(":kmath-for-real"))
 
     implementation("org.deeplearning4j:deeplearning4j-core:1.0.0-beta7")
@@ -56,7 +56,6 @@ dependencies {
     implementation("org.nd4j:nd4j-native-platform:1.0.0-beta7")
 
     implementation("org.jetbrains.kotlinx:kotlinx-io:0.2.0-npm-dev-11")
-    implementation("org.jetbrains.kotlinx:kotlinx-benchmark-runtime:0.3.0")
     implementation("org.slf4j:slf4j-simple:1.7.30")
 
     // plotting
@@ -109,12 +108,13 @@ kotlin.sourceSets.all {
     with(languageSettings) {
         useExperimentalAnnotation("kotlin.contracts.ExperimentalContracts")
         useExperimentalAnnotation("kotlin.ExperimentalUnsignedTypes")
+        useExperimentalAnnotation("kotlin.time.ExperimentalTime")
         useExperimentalAnnotation("space.kscience.kmath.misc.UnstableKMathAPI")
     }
 }
 
 tasks.withType<KotlinCompile> {
-    kotlinOptions{
+    kotlinOptions {
         jvmTarget = "11"
         freeCompilerArgs = freeCompilerArgs + "-Xjvm-default=all"
     }

@@ -41,5 +41,6 @@ include(
     ":kmath-ast",
     ":kmath-ejml",
     ":kmath-kotlingrad",
+    ":kmath-jep338",
     ":examples"
 )

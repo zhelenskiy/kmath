@@ -1,9 +1,6 @@
-package scientifik.memory
+package space.kscience.kmath.memory
 
-import kscience.kmath.memory.Memory
-import kscience.kmath.memory.foreign.allocateAsForeign
-import kscience.kmath.memory.read
-import kscience.kmath.memory.write
+import space.kscience.kmath.memory.foreign.allocateAsForeign
 import kotlin.test.Test
 import kotlin.test.assertEquals
 

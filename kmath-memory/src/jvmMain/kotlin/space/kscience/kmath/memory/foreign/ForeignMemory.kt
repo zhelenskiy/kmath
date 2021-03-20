@@ -1,10 +1,10 @@
-package kscience.kmath.memory.foreign
+package space.kscience.kmath.memory.foreign
 
 import jdk.incubator.foreign.MemoryHandles
 import jdk.incubator.foreign.MemorySegment
-import kscience.kmath.memory.Memory
-import kscience.kmath.memory.MemoryReader
-import kscience.kmath.memory.MemoryWriter
+import space.kscience.kmath.memory.Memory
+import space.kscience.kmath.memory.MemoryReader
+import space.kscience.kmath.memory.MemoryWriter
 import java.lang.invoke.VarHandle
 import java.nio.ByteOrder
 

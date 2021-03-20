@@ -1,35 +1,36 @@
 package space.kscience.kmath.benchmarks
 
+import kotlinx.benchmark.Benchmark
+import kotlinx.benchmark.Blackhole
+import kotlinx.benchmark.Scope
+import kotlinx.benchmark.State
 import space.kscience.kmath.asm.compile
-import space.kscience.kmath.ast.mstInExtendedField
+import space.kscience.kmath.ast.mstInField
 import space.kscience.kmath.expressions.Expression
 import space.kscience.kmath.expressions.expressionInExtendedField
 import space.kscience.kmath.expressions.invoke
 import space.kscience.kmath.expressions.symbol
-import space.kscience.kmath.operations.ExtendedField
-import space.kscience.kmath.operations.RealField
-import org.openjdk.jmh.annotations.Benchmark
-import org.openjdk.jmh.annotations.Scope
-import org.openjdk.jmh.annotations.State
+import space.kscience.kmath.operations.DoubleField
+import space.kscience.kmath.operations.bindSymbol
 import kotlin.random.Random
 
 @State(Scope.Benchmark)
 internal class ExpressionsInterpretersBenchmark {
     private companion object {
-        private val algebra: ExtendedField<Double> = RealField
-        private const val times = 1_000_000
+        private val algebra: ExtendedField<Double> = DoubleField
+        private const val times: Int = 1_000_000
 
-        val functional = algebra.expressionInExtendedField {
+        private val functional: Expression<Double> = algebra.expressionInExtendedField {
             symbol("x") * const(2.0) + const(2.0) / symbol("x") - const(16.0) / sin(symbol("x"))
         }
 
-        val mst = algebra.mstInExtendedField {
+        private val mst: Expression<Double> = algebra.mstInExtendedField {
             symbol("x") * 2.0 + 2.0 / symbol("x") - 16.0 / sin(symbol("x"))
         }
 
-        val asm = mst.compile()
+        private val asm: Expression<Double> = mst.compile()
 
-        val raw = run {
+        private val raw: Expression<Double> = run {
             val x by symbol
 
             Expression<Double> { args ->
@@ -57,5 +58,7 @@ internal class ExpressionsInterpretersBenchmark {
         repeat(times) {
             sum += expr("x" to random.nextDouble())
         }
+
+        blackhole.consume(sum)
     }
 }

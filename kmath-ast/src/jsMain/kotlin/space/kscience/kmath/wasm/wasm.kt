@@ -3,8 +3,8 @@ package space.kscience.kmath.wasm
 import space.kscience.kmath.ast.MST
 import space.kscience.kmath.ast.MstExpression
 import space.kscience.kmath.expressions.Expression
+import space.kscience.kmath.operations.DoubleField
 import space.kscience.kmath.operations.IntRing
-import space.kscience.kmath.operations.RealField
 import space.kscience.kmath.wasm.internal.IntWasmBuilder
 import space.kscience.kmath.wasm.internal.RealWasmBuilder
 
@@ -13,7 +13,7 @@ import space.kscience.kmath.wasm.internal.RealWasmBuilder
  *
  * @author Iaroslav Postovalov.
  */
-public fun RealField.expression(mst: MST): Expression<Double> =
+public fun DoubleField.expression(mst: MST): Expression<Double> =
     RealWasmBuilder(mst).instance
 
 /**
@@ -29,7 +29,7 @@ public fun IntRing.expression(mst: MST): Expression<Int> =
  *
  * @author Iaroslav Postovalov.
  */
-public fun MstExpression<Double, RealField>.compile(): Expression<Double> =
+public fun MstExpression<Double, DoubleField>.compile(): Expression<Double> =
     RealWasmBuilder(mst).instance
 
 /**

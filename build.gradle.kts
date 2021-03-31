@@ -3,6 +3,7 @@ import java.net.URL
 
 plugins {
     id("ru.mipt.npm.gradle.project")
+    kotlin("jupyter.api") apply false
 }
 
 allprojects {
@@ -16,6 +17,7 @@ allprojects {
             setUrl("http://logicrunch.research.it.uu.se/maven/")
             isAllowInsecureProtocol = true
         }
+        maven("https://maven.pkg.jetbrains.space/public/p/kotlinx-html/maven")
         mavenCentral()
     }
 

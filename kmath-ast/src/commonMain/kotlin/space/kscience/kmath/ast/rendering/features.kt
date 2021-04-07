@@ -278,10 +278,10 @@ public class SquareRoot(operations: Collection<String>?) : Unary(operations) {
 }
 
 public class Exponential(operations: Collection<String>?) : Unary(operations) {
-    public override fun render0(parent: FeaturedMathRenderer, node: MST.Unary): MathSyntax = SuperscriptSyntax(
+    public override fun render0(parent: FeaturedMathRenderer, node: MST.Unary): MathSyntax = ExponentialSyntax(
         operation = node.operation,
-        left = SymbolSyntax(string = "e"),
-        right = parent.render(node.value),
+        operand = OperandSyntax(operand = parent.render(node.value), parentheses = true),
+        useOperatorForm = true,
     )
 
     public companion object {

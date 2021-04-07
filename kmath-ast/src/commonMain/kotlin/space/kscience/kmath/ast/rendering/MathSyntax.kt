@@ -185,6 +185,24 @@ public data class RadicalSyntax(
 }
 
 /**
+ * Represents exponential function.
+ *
+ * @property operand The argument of function.
+ * @property useOperatorForm `true` if operator form is used (*exp (x)*), `false` if exponentiation form is used
+ * (*e<sup>x</sup>*).
+ * @author Iaroslav Postovalov
+ */
+public data class ExponentialSyntax(
+    public override val operation: String,
+    public override val operand: OperandSyntax,
+    public var useOperatorForm: Boolean,
+) : UnarySyntax() {
+    init {
+        operand.parent = this
+    }
+}
+
+/**
  * Represents a syntax node with superscript (usually, for exponentiation).
  *
  * @property left The node.

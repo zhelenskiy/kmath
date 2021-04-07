@@ -95,6 +95,7 @@ public open class FeaturedMathRendererWithPostProcess(
                 PrintSymbolic,
             ),
             listOf(
+                BetterExponential,
                 SimplifyParentheses.Default,
                 BetterMultiplication,
             ),

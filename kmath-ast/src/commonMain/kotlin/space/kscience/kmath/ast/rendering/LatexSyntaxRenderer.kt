@@ -66,6 +66,15 @@ public object LatexSyntaxRenderer : SyntaxRenderer {
                 append('}')
             }
 
+            is ExponentialSyntax -> if (node.useOperatorForm) {
+                append("\\operatorname{exp}\\,")
+                render(node.operand)
+            } else {
+                append("e^{")
+                render(node.operand)
+                append('}')
+            }
+
             is SuperscriptSyntax -> {
                 render(node.left)
                 append("^{")

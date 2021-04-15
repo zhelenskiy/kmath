@@ -67,7 +67,8 @@ public interface AlgebraND<T, C : Algebra<T>> {
      * @return a feature object or `null` if it isn't present.
      */
     @UnstableKMathAPI
-    public fun <F : Any> getFeature(structure: StructureND<T>, type: KClass<F>): F? = structure.getFeature(type)
+    public fun <F : StructureFeature> getFeature(structure: StructureND<T>, type: KClass<out F>): F? =
+        structure.getFeature(type)
 
     public companion object
 }
@@ -81,7 +82,7 @@ public interface AlgebraND<T, C : Algebra<T>> {
  * @return a feature object or `null` if it isn't present.
  */
 @UnstableKMathAPI
-public inline fun <T : Any, reified F : Any> AlgebraND<T, *>.getFeature(structure: StructureND<T>): F? =
+public inline fun <T : Any, reified F : StructureFeature> AlgebraND<T, *>.getFeature(structure: StructureND<T>): F? =
     getFeature(structure, F::class)
 
 /**
@@ -119,8 +120,8 @@ public interface GroupND<T, S : Group<T>> : Group<StructureND<T>>, AlgebraND<T, 
     /**
      * Element-wise addition.
      *
-     * @param a the addend.
-     * @param b the augend.
+     * @param a the augend.
+     * @param b the addend.
      * @return the sum.
      */
     public override fun add(a: StructureND<T>, b: StructureND<T>): StructureND<T> =
@@ -140,8 +141,8 @@ public interface GroupND<T, S : Group<T>> : Group<StructureND<T>>, AlgebraND<T, 
     /**
      * Adds an ND structure to an element of it.
      *
-     * @receiver the addend.
-     * @param arg the augend.
+     * @receiver the augend.
+     * @param arg the addend.
      * @return the sum.
      */
     public operator fun StructureND<T>.plus(arg: T): StructureND<T> = this.map { value -> add(arg, value) }
@@ -158,8 +159,8 @@ public interface GroupND<T, S : Group<T>> : Group<StructureND<T>>, AlgebraND<T, 
     /**
      * Adds an element to ND structure of it.
      *
-     * @receiver the addend.
-     * @param arg the augend.
+     * @receiver the augend.
+     * @param arg the addend.
      * @return the sum.
      */
     public operator fun T.plus(arg: StructureND<T>): StructureND<T> = arg.map { value -> add(this@plus, value) }

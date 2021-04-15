@@ -1,16 +1,13 @@
 plugins {
-    id("ru.mipt.npm.gradle.mpp")
+    kotlin("multiplatform")
+    id("ru.mipt.npm.gradle.common")
+}
+
+kscience {
+    useAtomic()
 }
 
 kotlin.sourceSets {
-    all {
-        languageSettings.apply {
-            useExperimentalAnnotation("kotlinx.coroutines.FlowPreview")
-            useExperimentalAnnotation("kotlinx.coroutines.ExperimentalCoroutinesApi")
-            useExperimentalAnnotation("kotlinx.coroutines.ObsoleteCoroutinesApi")
-        }
-    }
-
     commonMain {
         dependencies {
             api(project(":kmath-coroutines"))

@@ -1,7 +1,8 @@
-package space.kscience.kmath.stat
+package space.kscience.kmath.distributions
 
 import space.kscience.kmath.chains.Chain
 import space.kscience.kmath.chains.SimpleChain
+import space.kscience.kmath.stat.RandomGenerator
 
 /**
  * A multivariate distribution which takes a map of parameters
@@ -14,7 +15,7 @@ public interface NamedDistribution<T> : Distribution<Map<String, T>>
 public class FactorizedDistribution<T>(public val distributions: Collection<NamedDistribution<T>>) :
     NamedDistribution<T> {
     override fun probability(arg: Map<String, T>): Double =
-        distributions.fold(1.0) { acc, distr -> acc * distr.probability(arg) }
+        distributions.fold(1.0) { acc, dist -> acc * dist.probability(arg) }
 
     override fun sample(generator: RandomGenerator): Chain<Map<String, T>> {
         val chains = distributions.map { it.sample(generator) }
@@ -38,6 +39,6 @@ public class DistributionBuilder<T : Any> {
     private val distributions = ArrayList<NamedDistribution<T>>()
 
     public infix fun String.to(distribution: Distribution<T>) {
-        distributions.add(NamedDistributionWrapper(this, distribution))
+        distributions += NamedDistributionWrapper(this, distribution)
     }
 }

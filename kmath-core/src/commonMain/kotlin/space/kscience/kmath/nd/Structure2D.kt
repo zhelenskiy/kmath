@@ -3,6 +3,7 @@ package space.kscience.kmath.nd
 import space.kscience.kmath.misc.UnstableKMathAPI
 import space.kscience.kmath.structures.Buffer
 import space.kscience.kmath.structures.VirtualBuffer
+import kotlin.jvm.JvmInline
 import kotlin.reflect.KClass
 
 /**
@@ -60,7 +61,8 @@ public interface Structure2D<T> : StructureND<T> {
 /**
  * A 2D wrapper for nd-structure
  */
-private inline class Structure2DWrapper<T>(val structure: StructureND<T>) : Structure2D<T> {
+@JvmInline
+private value class Structure2DWrapper<T>(val structure: StructureND<T>) : Structure2D<T> {
     override val shape: IntArray get() = structure.shape
 
     override val rowNum: Int get() = shape[0]
@@ -69,7 +71,7 @@ private inline class Structure2DWrapper<T>(val structure: StructureND<T>) : Stru
     override operator fun get(i: Int, j: Int): T = structure[i, j]
 
     @UnstableKMathAPI
-    override fun <F : Any> getFeature(type: KClass<F>): F? = structure.getFeature(type)
+    override fun <F : StructureFeature> getFeature(type: KClass<out F>): F? = structure.getFeature(type)
 
     override fun elements(): Sequence<Pair<IntArray, T>> = structure.elements()
 }
